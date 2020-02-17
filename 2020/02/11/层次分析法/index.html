@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/2.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/3.png">
 <meta property="article:published_time" content="2020-02-11T15:11:09.147Z">
-<meta property="article:modified_time" content="2020-02-12T15:19:17.253Z">
+<meta property="article:modified_time" content="2020-02-14T17:36:03.319Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
@@ -239,11 +239,11 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$CI$接近于0，有满意的一致性</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$CI$ 越大，不一致越严重</p>
 <p>为衡量<em>CI</em> 的大小，引入随机一致性指标 <em>RI</em>。具体方法步骤为：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.随机构造500个成对比较矩阵:A<del>1</del>,A<del>2</del>,…,A<del>500​</del></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.然后将分别带入带入公式：$CI=\frac{\lambda-n}{n-1}$则可得一致性指标：CI<del>1</del>,CI<del>2</del>,…,CI<del>500</del>           </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.随机构造500个成对比较矩阵:$A_1,A_2,…,A_500$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.然后将分别带入带入公式：$CI=\frac{\lambda-n}{n-1}$则可得一致性指标：$CI_1,CI_2,…,CI_500$           </p>
 <p><a href="5.png"></a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从而定义一致性比率 ：$CR=\frac{CI}{RI}$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.一般，当一致性比率$CR=\frac{CI}{RI}$&lt;0.1时，认为A的不一致程度在容许范围之内，有满意的一致性，通过一致性检验。可用其归一化特征向量作为权向量，否则要重新构造成对比较矩阵A，对 <em>a</em><del>ij</del> 加以调整。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.一般，当一致性比率$CR=\frac{CI}{RI}$&lt;0.1时，认为A的不一致程度在容许范围之内，有满意的一致性，通过一致性检验。可用其归一化特征向量作为权向量，否则要重新构造成对比较矩阵A，对 $a_\ij$ 加以调整。</p>
 <p><strong>4.层次总排序及其一致性检验</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•计算某一层次所有因素对于最高层(总目标)相对重要性的权值，称为层次总排序。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•这一过程是从最高层次到最低层次依次进行的。</p>
