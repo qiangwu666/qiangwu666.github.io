@@ -6,18 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | 吴健强的个人博客网站</title>
+  <title>VS2013编译64位QT4.8.6源代码（超详细版） | 吴健强的个人博客网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机知识分享与学习网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴健强的个人博客网站">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;网上对于Visual Studio 2013版本编译64位的QT4版本的资料相对较少，因此本人在编译的过程也走了一些弯路，现趁着空闲时间来详细的讲讲编译的步骤。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先，下载Visual Studio 2013">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VS2013编译64位QT4.8.6源代码（超详细版）">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
-<meta property="og:description" content="计算机知识分享与学习网站">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;网上对于Visual Studio 2013版本编译64位的QT4版本的资料相对较少，因此本人在编译的过程也走了一些弯路，现趁着空闲时间来详细的讲讲编译的步骤。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先，下载Visual Studio 2013">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/6.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/7.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/8.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/9.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/10.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/11.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/12.png">
+<meta property="article:published_time" content="2020-05-13T09:55:32.644Z">
+<meta property="article:modified_time" content="2020-05-14T11:36:17.275Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="吴健强的个人博客网站" type="application/atom+xml">
   
@@ -145,103 +160,313 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-VS2013编译64位QT4.8.6源代码（超详细版）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VS2013编译64位QT4.8.6源代码（超详细版）
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-05-13T09:55:32.644Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网上对于Visual Studio 2013版本编译64位的QT4版本的资料相对较少，因此本人在编译的过程也走了一些弯路，现趁着空闲时间来详细的讲讲编译的步骤。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，<strong>下载Visual Studio 2013版本并进行安装</strong>，推荐微信公众号关注：软件安装管家。这里面有许多软件的各个版本的破解版下载链接和教程，免费的！！！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接下来，<strong>下载QT4</strong>，这个可以直接搜索官网进行下载，百度搜索QT4下载就能找到。具体哪个版本可随意，只要是QT4的就行，本文就用QT4.8.6版本进行演示。</p>
+<p>下载链接：<a href="http://download.qt.io/archive/qt/4.8/4.8.6/qt-everywhere-opensource-src-4.8.6.zip" target="_blank" rel="noopener">http://download.qt.io/archive/qt/4.8/4.8.6/qt-everywhere-opensource-src-4.8.6.zip</a></p>
+<p><font color="red">注意：下载的要是源代码，不要下载成已经编译好的软件。</font></p>
+<a id="more"></a>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg" alt></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;然后，还需要下载一个插件：QT VS Tools，这个插件的作用是把QT嵌入到Visual Studio中，VS2013对应的插件版本是<strong>qt-vs-tools-msvc2013-2.1.1</strong>。下载完后先别急着安装。</p>
+<p>下载链接：<a href="https://download.csdn.net/download/u014615957/9991460" target="_blank" rel="noopener">https://download.csdn.net/download/u014615957/9991460</a></p>
+<p><font color="red">以下就是<strong>重点</strong>了！！！我们开始对QT源代码进行编译</font></p>
+<p>总体分为三个步骤。</p>
+<p><strong>第一步：为了让QT4适配VS2013，需要改动几个地方</strong></p>
+<p><strong>第一个地方：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开：D:\qt-everywhere-opensource-src-4.8.6\mkspecs\win32-msvc2013。找到文件qmake.conf，用</p>
+<p>Notepad++软件打开。没有的自己下载（链接：<a href="https://notepad-plus.en.softonic.com/）" target="_blank" rel="noopener">https://notepad-plus.en.softonic.com/）</a></p>
+<p>找到：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO = /DEBUG /OPT:REF</span><br><span class="line">QMAKE_LFLAGS_DEBUG      = /DEBUG</span><br></pre></td></tr></table></figure>
+
+<p>替换成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO = /DEBUG /OPT:REF /INCREMENTAL:NO</span><br><span class="line">QMAKE_LFLAGS_DEBUG      = /DEBUG /INCREMENTAL:NO</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二个地方：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开：D:\qt-everywhere-opensource-src-4.8.6\src\3rdparty\webkit\Source\JavaScriptCore\wtf。找到文件HashSet.h，用Notepad++软件打开。</p>
+<p>定位到代码块：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">inline</span> pair&lt;<span class="keyword">typename</span> HashSet&lt;T, U, V&gt;::iterator, <span class="keyword">bool</span>&gt; HashSet&lt;T, U, V&gt;::add(<span class="keyword">const</span> ValueType&amp; value)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> m_impl.add(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> m_impl.add(value);</span><br></pre></td></tr></table></figure>
+
+<p>替换成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">typename</span> HashSet&lt;T, U, V&gt;::iterator iter_type;</span><br><span class="line">   <span class="keyword">auto</span>&amp; p = m_impl.add(value);</span><br><span class="line">   <span class="keyword">return</span> make_pair((iter_type)p.first, p.second);</span><br></pre></td></tr></table></figure>
+
+<p><strong>第三个地方：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同样是这个文件。</p>
+<p>定位到代码块：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashSet&lt;Value, HashFunctions, Traits&gt;::add(<span class="keyword">const</span> T&amp; value)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">typedef</span> HashSetTranslatorAdapter&lt;ValueType, ValueTraits, T, HashTranslator&gt; Adapter;</span><br><span class="line">        <span class="keyword">return</span> m_impl.<span class="keyword">template</span> addPassingHashCode&lt;T, T, Adapter&gt;(value, value);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>将代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> m_impl.<span class="keyword">template</span> addPassingHashCode&lt;T, T, Adapter&gt;(value, value);</span><br></pre></td></tr></table></figure>
+
+<p>替换成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">typename</span> HashSet&lt;Value, HashFunctions, Traits&gt;::iterator iter_type;</span><br><span class="line"><span class="keyword">auto</span>&amp; p = m_impl.<span class="keyword">template</span> addPassingHashCode&lt;T, T, Adapter&gt;(value, value);</span><br><span class="line"><span class="keyword">return</span> make_pair((iter_type)p.first, p.second);</span><br></pre></td></tr></table></figure>
+
+<p><strong>第四个地方：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开：D:\qt-everywhere-opensource-src-4.8.6\src\3rdparty\webkit\Source\JavaScriptCore\wtf。找到文件MathExtras.h，用Notepad++软件打开。</p>
+<p>定位到代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#endif</span><br><span class="line"></span><br><span class="line">#if COMPILER(MSVC) || (COMPILER(RVCT) &amp;&amp; !(RVCT_VERSION_AT_LEAST(3, 0, 0, 0)))</span><br><span class="line"></span><br><span class="line"> &#x2F;&#x2F; We must not do &#39;num + 0.5&#39; or &#39;num - 0.5&#39; because they can cause precision loss.</span><br><span class="line"> static double round(double num)</span><br></pre></td></tr></table></figure>
+
+<p>将代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#if COMPILER(MSVC) || (COMPILER(RVCT) &amp;&amp; !(RVCT_VERSION_AT_LEAST(3, 0, 0, 0)))</span><br></pre></td></tr></table></figure>
+
+<p>替换成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#if (COMPILER(MSVC) &amp;&amp; _MSC_VER &lt; 1800) || (COMPILER(RVCT) &amp;&amp; !(RVCT_VERSION_AT_LEAST(3, 0, 0, 0)))</span><br></pre></td></tr></table></figure>
+
+<p><strong>第五个地方：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同样是这个文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> #endif</span><br><span class="line"></span><br><span class="line">#if COMPILER(MSVC)</span><br><span class="line"></span><br><span class="line"> &#x2F;&#x2F; The 64bit version of abs() is already defined in stdlib.h which comes with VC10</span><br><span class="line"> #if COMPILER(MSVC9_OR_LOWER)</span><br><span class="line"> inline long long abs(long long num) &#123; return _abs64(num); &#125;</span><br></pre></td></tr></table></figure>
+
+<p>将代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#if COMPILER(MSVC)</span><br></pre></td></tr></table></figure>
+
+<p>替换成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#if COMPILER(MSVC) &amp;&amp; _MSC_VER &lt; 1800</span><br></pre></td></tr></table></figure>
+
+<p><strong>第六个地方：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开：D:\qt-everywhere-opensource-src-4.8.6\src\3rdparty\webkit\Source\WebCore\platform。找到文件DefaultLocalizationStrategy.cpp，用Notepad++软件打开。</p>
+<p>定位到第327行代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return WEB_UI_STRING(&quot;LookUp “&lt;selection&gt;”&quot;,&quot;Look Up context menu item with selectedword&quot;).replace(&quot;&lt;selection&gt;&quot;,truncatedStringForLookupMenuItem(selectedString));</span><br></pre></td></tr></table></figure>
+
+<p>替换成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return WEB_UI_STRING(&quot;LookUp \&quot;&lt;selection&gt;\&quot;&quot;, &quot;Look Up context menu item withselected word&quot;).replace(&quot;&lt;selection&gt;&quot;,truncatedStringForLookupMenuItem(selectedString));</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步：用VS编译64位的QT4源代码。</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在开始菜单点击该文件：</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/2.png" alt></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点击： VS2013 x64 本机工具命令提示</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/3.png" alt></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入：configure -opensource -nomake demos -nomake examples -platform win32-msvc2013</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;等待执行完成后，根据提示输入：nmake</p>
+<p>之后去做其他事情吧，这个需要大概三四个小时左右</p>
+<p><strong>第三步：安装插件qt-vs-tools-msvc2013-2.1.1</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;直接安装（前提是VS2013已经安装完了并且QT也编译完了），安装过程很简单，无脑下一步就行。</p>
+<p>1.安装完成后打开VS2013，可以看到菜单栏上有该插件。</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/4.png" alt></p>
+<p>2.点击Qt Options</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/5.png" alt></p>
+<p>3.将QT代码加入</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/6.png" alt></p>
+<p>最后，我们用代码来测试一下是否ok。</p>
+<p>某位大佬的QT学习代码链接：<a href="https://share.weiyun.com/8bcbb391c9c31f7dd52678583e8e9e08" target="_blank" rel="noopener">https://share.weiyun.com/8bcbb391c9c31f7dd52678583e8e9e08</a></p>
+<p>下载完，解压文件后，随便打开一个工程</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/7.png" alt></p>
+<p>点击确定，不用理会</p>
+<p>此时，如果直接生成或编译则会报错，如下图所示：</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/8.png" alt></p>
+<p>正常操作是先点击该工程下任意.c文件</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/9.png" alt></p>
+<p>然后点击Convert Project to Qt VS Tools Project进行工程转换</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/10.png" alt></p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/11.png" alt></p>
+<p>最后Ctal+F5运行程序</p>
+<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/12.png" alt></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2020-02-12T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/">浅谈主成分分析法与因子分析的区别（个人观点）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-02-12T16:34:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C++与数据结构知识点总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">Matlab基础操作</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="VS2013编译64位QT4.8.6源代码（超详细版）" data-title="VS2013编译64位QT4.8.6源代码（超详细版）" data-url="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/", 
+    sourceId: "VS2013编译64位QT4.8.6源代码（超详细版）",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-02-09T09:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
+  <div id="SOHUCS" sid="VS2013编译64位QT4.8.6源代码（超详细版）" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -264,8 +489,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

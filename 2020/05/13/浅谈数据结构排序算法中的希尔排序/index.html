@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | 吴健强的个人博客网站</title>
+  <title>浅谈数据结构排序算法中的希尔排序 | 吴健强的个人博客网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机知识分享与学习网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴健强的个人博客网站">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。 其中：希尔排序（不稳定的排序） &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;希尔排序又称：缩小增量排序。什么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈数据结构排序算法中的希尔排序">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
-<meta property="og:description" content="计算机知识分享与学习网站">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。 其中：希尔排序（不稳定的排序） &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;希尔排序又称：缩小增量排序。什么">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/1.png">
+<meta property="article:published_time" content="2020-05-13T10:37:32.404Z">
+<meta property="article:modified_time" content="2020-03-08T00:01:28.623Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/1.png">
   
     <link rel="alternative" href="/atom.xml" title="吴健强的个人博客网站" type="application/atom+xml">
   
@@ -145,103 +149,235 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浅谈数据结构排序算法中的希尔排序" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅谈数据结构排序算法中的希尔排序
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.404Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
+<p>其中：希尔排序（不稳定的排序）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希尔排序又称：缩小增量排序。什么是不稳定的排序呢？意思是假如未排序前的序列存在两个值相同的元素，经过希尔排序后，这两个值在排完的有序序列中的先后位置会发生改变。反之，稳定的排序则不会发生改变。</p>
+<p>为什么希尔排序是不稳定的排序呢？因为：不同的增量可能把相同的关键字划分到两个子序列中执行直接插入排序。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希尔排序可以理解为：要对整个班级按照身高从低到高排列。希尔排序就是首先将班级人数分成5排，然后对每一列进行排序；当排序完后再将队伍分成2排，再次对每一列的同学进行身高排序；当再次排序完后最后队伍分成1排，对每一列的同学进行身高排序（此时就是简单的插入排序了）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/1.png" alt></p>
+<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
+<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//调用命名空间std内定义的所有标识符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>  ElemType int</span></span><br><span class="line">ElemType A[] = &#123; <span class="number">8</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>&#125;;<span class="comment">//定义要排序的数组</span></span><br><span class="line"><span class="keyword">int</span> n = <span class="number">10</span>;<span class="comment">//从A[1]-A[n]。A[0]当哨兵，用于暂存元素值，其初始元素值不算在要排序的序列中</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(ElemType A[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, d;</span><br><span class="line">	<span class="keyword">for</span>(d=n/<span class="number">2</span>;d&gt;=<span class="number">1</span>;d=d/<span class="number">2</span>)<span class="comment">//每次增量大小对半切（缩小增量），d=d/2（向下取整），最后一次d取到1，所以限制条件d&gt;=1</span></span><br><span class="line">		<span class="keyword">for</span>(i=d+<span class="number">1</span>;i&lt;=n;i++)<span class="comment">////i=d+1和i&lt;=n：加一是为了扣除A[0]，如果采用temp存储则要改成i=d和i&lt;n。区间内元素的比较次数，增量越小，比较次数越多</span></span><br><span class="line">			<span class="keyword">if</span>(A[i]&lt;A[i-d])<span class="comment">//相差d的元素进行对比，因为是从小到大排序，所以如果后面的元素比前面的大，那就要对换两个元素的位置</span></span><br><span class="line">			&#123;</span><br><span class="line">				A[<span class="number">0</span>] = A[i];<span class="comment">//用于暂存作用</span></span><br><span class="line">				<span class="keyword">for</span> (j = i - d;j &gt; <span class="number">0</span> &amp;&amp; A[<span class="number">0</span>] &lt; A[j];j -= d)<span class="comment">//j &gt; 0:为了排除A[0]，若用temp变量进行暂存，则改为j &gt;= 0&amp;&amp; temp &lt; A[j](见方法二)</span></span><br><span class="line">					A[j + d] = A[j];<span class="comment">//对每个增量区间的对应位置的元素从后向前进行一一比对，不满足A[0] &lt; A[j]或者直到比较完所有区间的对应位置元素后，跳出for循环 </span></span><br><span class="line">				A[j + d] = A[<span class="number">0</span>];<span class="comment">//将值插入</span></span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ShellSort(A, n);<span class="comment">//调用希尔排序算法</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"数组A[]的最终排序为："</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>;x &lt;=n;x++)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; A[x] &lt;&lt; <span class="string">"  "</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ShellSort的复杂度分析非常复杂，不同gap序列的设计对应不同的复杂度。</p>
+<p>最坏时间复杂度：根据步长序列的不同而不同。已知最好的： O($n (logn) ^2$)<br>最优时间复杂度:  O($n$)<br>平均时间复杂度：根据步长序列的不同而不同。<br>最坏空间复杂度：O($n^2$)（增量元素不互质，小增量可能根本不起作用）</p>
+<p>空间复杂度：O(1)<font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：哨兵A[0]（常数个空间）</font></p>
+<p>方法二：设定一个中间变量temp（主流）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//调用命名空间std内定义的所有标识符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>  ElemType int</span></span><br><span class="line">ElemType A[] = &#123; <span class="number">8</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span> &#125;;<span class="comment">//定义要排序的数组</span></span><br><span class="line"><span class="keyword">int</span> n = <span class="number">10</span>;<span class="comment">//n=size(A)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(ElemType A[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, d,temp;</span><br><span class="line">	<span class="keyword">for</span> (d = n / <span class="number">2</span>;d &gt;= <span class="number">1</span>;d = d / <span class="number">2</span>)<span class="comment">//每次增量大小对半切（缩小增量），d=d/2（向下取整），最后一次d取到1，所以限制条件d&gt;=1</span></span><br><span class="line">		<span class="keyword">for</span> (i = d ;i &lt;n;i++)<span class="comment">//区间内元素的比较次数，增量越小，比较次数越多</span></span><br><span class="line">			<span class="keyword">if</span> (A[i] &lt; A[i - d])<span class="comment">//相差d的元素进行对比，因为是从小到大排序，所以如果后面的元素比前面的大，那就要对换两个元素的位置</span></span><br><span class="line">			&#123;</span><br><span class="line">				temp = A[i];<span class="comment">//用于暂存作用</span></span><br><span class="line">				<span class="keyword">for</span> (j = i - d;j &gt;=<span class="number">0</span> &amp;&amp;temp &lt; A[j];j -= d)</span><br><span class="line">					A[j + d] = A[j];<span class="comment">//对每个增量区间的对应位置的元素从后向前进行一一比对，不满足A[0] &lt; A[j]或者直到比较完所有区间的对应位置元素后，跳出for循环 </span></span><br><span class="line">				A[j + d] = temp;<span class="comment">//将值插入</span></span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ShellSort(A, n);<span class="comment">//调用希尔排序算法</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"数组A[]的最终排序为："</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>;x &lt;n;x++)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; A[x] &lt;&lt; <span class="string">"  "</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>空间复杂度：O(1)<font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：中间变量temp（常数个空间）</font>`</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;步长的选择是希尔排序的重要部分。只要最终步长为1任何步长序列都可以工作。算法最开始以一定的步长进行排序。然后会继续以一定步长进行排序，直到最终算法以步长为1进行排序。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Donald Shell最初建议步长选择为 n/2 并且对步长取半直到步长达到1。虽然这样取可以比 O(n^2)类的算法更好，但这样仍然有减少平均时间和最差时间的余地。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已知的最好步长序列是由Sedgewick提出的(1, 5, 19, 41, 109,…)。这项研究也表明“比较在希尔排序中是最主要的操作，而不是交换。”用这样步长序列的希尔排序比插入排序要快，甚至在小数组中比快速排序和堆排序还快，但是在涉及大量数据时希尔排序还是比快速排序慢。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另一个在大数组中表现优异的步长序列是（斐波那契数列除去0和1将剩余的数以黄金分区比的两倍的幂进行运算得到的数列）：(1, 9, 34, 182, 836, 4025, 19001, 90358, 428481, 2034035, 9651787, 45806244, 217378076, 1031612713,…)</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2020-02-12T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/">浅谈主成分分析法与因子分析的区别（个人观点）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-02-12T16:34:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          浅谈数据结构排序算法中的快速排序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈数据结构排序算法中的冒泡算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">Matlab基础操作</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="浅谈数据结构排序算法中的希尔排序" data-title="浅谈数据结构排序算法中的希尔排序" data-url="http://yoursite.com/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/", 
+    sourceId: "浅谈数据结构排序算法中的希尔排序",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-02-09T09:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
+  <div id="SOHUCS" sid="浅谈数据结构排序算法中的希尔排序" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -264,8 +400,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

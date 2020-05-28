@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | 吴健强的个人博客网站</title>
+  <title>层次分析法 | 吴健强的个人博客网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机知识分享与学习网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴健强的个人博客网站">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+  <meta name="description" content="层次分析法（AHP法）是一种解决多目标的复杂问题的定性与定量相结合的决策分析方法。 注： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;定性：通过非量化的手段来探究事物的本质。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 定量：以数量形式存在着的属性，并因此可以对其进行测量。 举个例子： &amp;nb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="层次分析法">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
-<meta property="og:description" content="计算机知识分享与学习网站">
+<meta property="og:description" content="层次分析法（AHP法）是一种解决多目标的复杂问题的定性与定量相结合的决策分析方法。 注： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;定性：通过非量化的手段来探究事物的本质。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 定量：以数量形式存在着的属性，并因此可以对其进行测量。 举个例子： &amp;nb">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/3.png">
+<meta property="article:published_time" content="2020-05-13T10:37:32.389Z">
+<meta property="article:modified_time" content="2020-02-14T17:36:03.319Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/1.png">
   
     <link rel="alternative" href="/atom.xml" title="吴健强的个人博客网站" type="application/atom+xml">
   
@@ -145,103 +151,298 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-层次分析法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      层次分析法
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>层次分析法（AHP法）是一种解决<strong>多目标</strong>的复杂问题的<strong>定性</strong>与<strong>定量</strong>相结合的<strong>决策分析方法</strong>。</p>
+<p>注：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定性：通过非量化的手段来探究事物的本质。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 定量：以数量形式存在着的属性，并因此可以对其进行测量。</p>
+<p>举个例子：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>人物</strong>：小强</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>目的</strong>：打算从北京去上海玩</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>要求</strong>：分析他是坐动车去呢？还是坐飞机去呢？还是坐汽车去呢？还是跑过去呢？请根据他个人情况进行最优方案的选择</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上述举例的这道题就是一道采用层次分析法来解决的经典题目。现在我们来进行一一分析。</p>
+<a id="more"></a>
+
+<p>为什么说层次分析法是解决多目标的复杂问题呢？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：多目标也可以说是多方案。体现在小强从北京去上海玩可以选择不同的出行方案。比如：上面说的坐车，坐火箭，坐航空母舰啥的，或者是走过去。这么多的方案就叫多目标</p>
+<p>为什么说是定性和定量相结合呢？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：定量是对数量形式存在着的属性进行测量的意思。定性则是非数量形式存在着的属性，通过非量化的手段来进行探究。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本题的定性体现在：对于从北京到上海的出行方案肯定要根据小强自身的情况来进行选择。那么所谓的自身情况到底是哪些情况呢？比如经济情况，时间情况，会不会晕车等等。上述这些统称为决定小强出行方案的影响指标，而这些指标到底该选择哪些呢？哪些指标对方案的选择比较大（权重比较大）呢？这就是层次分析法所体现的定性。毕竟这些指标选取得看自身情况来进行主观选择，是没法进行具体的数值量化。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那定量体现在哪里呢？就体现在当小强决定完影响指标有哪些、指标间权重大小到底是多少后，采用层次分析法的具体计算公式进行计算，从而得出最优方案的过程。这就叫做定量。所有层次分析法才说是<strong>定性</strong>与<strong>定量</strong>相结合的<strong>决策分析方法</strong>。</p>
+<p><font color="red">注：权重的意思是哪个指标影响结果更为严重。更为严重的那权重值就大，不严重那权重值就小</font></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据上述，我们可以知道层次分析法是一种主观的判断方法，因此在数学建模中，不建议单独直接使用。毕竟数学模型讲究的是一个准确性和稳定性。而层次分析法对于指标的选取毕竟是带有主观因素的，怎么选择就有点公说公有理，婆说婆有理的感觉了。所以在比赛中还是慎重使用为好。但<strong>并不是说</strong>层次分析法不重要哦！！！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在我们来讲讲层次分析法构造系统模型时的具体步骤。大体上可以分为以下四个步骤：</p>
+<p>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.  建立层次结构模型</p>
+<p>​    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.  构造判断(成对比较)矩阵</p>
+<p>​    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.  层次单排序及其一致性检验</p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   4.  层次总排序及其一致性检验  </p>
+<p><strong>1.建立层次结构模型</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先是需要明确这三点：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;决策的目标（你到底要解决什么问题）。eg：小强要从北京去上海，要解决的问题就是用什么方法过去</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;考虑的因素（决策准则）。eg：影响小强选择去上海的方案的影响因素有哪些？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;决策对象。eg：从北京去到上海有哪几套出行方案</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接下来就是将决策的目标、考虑的因素（决策准则）和决策对象按它们之间的相互关系分为最高层、中间层和最低层，绘出层次结构图</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>最高层</strong>：决策的目的、要解决的问题。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>中间层</strong>：考虑的因素、决策的准则。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>• 最低层</strong>：决策时的备选方案。</p>
+<p><strong>2.构造判断(成对比较)矩阵</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓的构造判断(成对比较)矩阵就是根据所选影响指标的权重大小，列成矩阵的形式。</p>
+<p>比如：小强结合自身情况，决定出出行的影响指标为：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晕车程度（X1）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开销程度（X2）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间耗费情况（X3）</p>
+<p>具体权重(W)大小为：&nbsp;晕车程度（W1:0.5）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开销程度（W2:0.3）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间耗费情况（W3:0.2）</p>
+<p>那么所构建的判断矩阵则为：</p>
+<p><img src="/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/1.png" alt></p>
+<p><font color="red">注：权重值之和为1，所谓的成对比较的意思是指标间权重值大小的对比。两两比较构建出三行三列的矩阵出来</font></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在确定各层次各因素之间的权重时，如果只是定性的结果，则常常不容易被别人接受，因而Santy等人提出：一致矩阵法，即：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 不把所有因素放在一起比较，而是两两相互比较。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.对此时采用相对尺度，以尽可能减少性质不同的诸因素相互比较的困难，以提高准确度。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">心理学家认为成对比较的因素不宜超过9个，即每层不要超过9个因素。</font>因此判断矩阵的元素用Santy的1~9标度方法给出：</p>
+<p><img src="/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/2.png" alt></p>
+<p><font color="red">注意咯，接下来的内容就涉及到线性代数的知识啦！</font></p>
+<p>构建的判断矩阵还应该满足一致性检验。</p>
+<p>首先，介绍一下什么是<strong>一致阵</strong>？</p>
+<p><strong>满足</strong>：</p>
+<p>&nbsp;&nbsp;&nbsp;<img src="/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/3.png" alt></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;的<strong>正互反阵</strong>A称一致阵</p>
+<p><strong>一致阵</strong>的性质：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A的秩为1，A的唯一非零特征根为n</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;非零特征根n所对应的特征向量归一化后可作为权向量</p>
+<p><font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：一致性检验并不是说这个矩阵一定要是个一致阵。</font><strong>允许矩阵不一致，但要确定不一致的允许范围</strong>，在这个允许的范围内就说明通过了一致性检验，否则不通过的话需要重新的构建这个判断矩阵，改变影响指标的权重和个数，直到满足一致性检验的要求。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于不一致(但在允许范围内)的成对比较阵A，Saaty等人建议用对应于最大特征根$\lambda$的特征向量作为权向量$\omega$，即：A$\omega$=$\lambda$$\omega$</p>
+<p><strong>3.层次单排序及其一致性检验</strong>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对应于判断矩阵最大特征根λ<del>max</del>的特征向量，经归一化(使向量中各元素之和等于1)后记为W。 W的元素为同一层次因素对于上一层次因素某因素相对重要性的排序权值，这一过程称为层次单排序。能否确认层次单排序，需要进行一致性检验，所谓一致性检验是指对A确定不一致的允许范围。</p>
+<p>现在引入线性代数的两个定理：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定理1：$n$ 阶一致阵的唯一非零特征根为<em>n</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定理2：$n$ 阶正互反阵<em>A</em>的最大特征根$\lambda\geq  n$, 当且仅当$\lambda=n$时<em>A</em>为一致阵</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于<em>λ</em> 连续的依赖于a<del>ij</del>，则$\lambda$比$n$ 大的越多，A 的不一致性越严重。用最大特征值对应的特征向量作为被比较因素对上层某因素影响程度的权向量，其不一致程度越大，引起的判断误差越大。因而可以用 <em>λ-n</em>  数值的大小来衡量 <em>A</em> 的不一致程度。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定义一致性指标：$CI=\frac{\lambda-n}{n-1}$。其中：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$CI$=0，有完全的一致性</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$CI$接近于0，有满意的一致性</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$CI$ 越大，不一致越严重</p>
+<p>为衡量<em>CI</em> 的大小，引入随机一致性指标 <em>RI</em>。具体方法步骤为：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.随机构造500个成对比较矩阵:$A_1,A_2,…,A_500$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.然后将分别带入带入公式：$CI=\frac{\lambda-n}{n-1}$则可得一致性指标：$CI_1,CI_2,…,CI_500$           </p>
+<p><a href="5.png"></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从而定义一致性比率 ：$CR=\frac{CI}{RI}$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.一般，当一致性比率$CR=\frac{CI}{RI}$&lt;0.1时，认为A的不一致程度在容许范围之内，有满意的一致性，通过一致性检验。可用其归一化特征向量作为权向量，否则要重新构造成对比较矩阵A，对 $a_\ij$ 加以调整。</p>
+<p><strong>4.层次总排序及其一致性检验</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•计算某一层次所有因素对于最高层(总目标)相对重要性的权值，称为层次总排序。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•这一过程是从最高层次到最低层次依次进行的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于影响指标可能还可以继续细分，如评价一个国家脆弱性（2018年美赛E题第一大题）可以从政治，军事，经济，文化等大方向的影响指标细分到下一级，如：经济可细分为GDP增量，财政收入，人均消费指数等等，因此需要进行多次的层次单排序及其一致性检验。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当$CR&lt;0.1$时，认为层次总排序通过一致性检验。层次总排序具有满意的一致性，否则需要重新调整那些一致性比率高的判断矩阵的元素取值。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到此，根据最下层（决策层）的层次总排序做出最后决策</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所以综上所述：人们在对<strong>社会、经济以及管理领域的问题</strong>进行系统分析时，面临的经常是一个由<strong>相互关联、相互制约的众多因素构成的复杂系统。</strong>层次分析法则为研究这类复杂的系统，提供了一种新的、简洁的、实用的决策方法。</p>
+<p>层次分析法的<font color="red">优点</font>：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.<strong>系统性</strong>：将对象视作系统，按照分解、比较、判断、综合的思维方式进行决策。成为成为继机理分析、统计分析之后发展起来的系统分析的重要工具；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.<strong>实用性</strong>：定性与定量相结合，能处理许多用传统的最优化技术无法着手的实际问题，应用范围很广，同时，这种方法使得决策者与决策分析者能够相互沟通，决策者甚至可以直接应用它，这就增加了决策的有效性；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.<strong>简洁性</strong>：计算简便，结果明确，具有中等文化程度的人即可以了解层次分析法的基本原理并掌握该法的基本步骤，容易被决策者了解和掌握。便于决策者直接了解和掌握。</p>
+<p>层次分析法的<font color="red">局限</font>：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.<strong>囿旧</strong>：只能从原有的方案中优选一个出来，没有办法得出更好的新方案；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.<strong>粗略</strong>：该法中的比较、判断以及结果的计算过程都是粗糙的，不适用于精度较高的问题；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.<strong>主观</strong>：从建立层次结构模型到给出成对比较矩阵，人主观因素对整个过程的影响很大，这就使得结果难以让所有的决策者接受。当然采取专家群体判断的办法是克服这个缺点的一种途径。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2020-02-12T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/">浅谈主成分分析法与因子分析的区别（个人观点）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-02-12T16:34:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数学建模介绍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/13/%E5%88%B7%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">刷题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">Matlab基础操作</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="层次分析法" data-title="层次分析法" data-url="http://yoursite.com/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/", 
+    sourceId: "层次分析法",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-02-09T09:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
+  <div id="SOHUCS" sid="层次分析法" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -264,8 +465,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

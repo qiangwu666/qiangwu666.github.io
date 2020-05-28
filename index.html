@@ -147,31 +147,63 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-浅谈数据结构排序算法中的冒泡算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-毕设答辩问题总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/08/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">浅谈数据结构排序算法中的冒泡算法</a>
+      <a class="article-title" href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">毕设答辩问题总结</a>
     </h1>
   
 
         
-        <a href="/2020/03/08/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-03-08T00:05:11.446Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
+        <a href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-05-25T15:36:29.523Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而交换类排序包括：冒泡排序和快速排序。</p>
-<p>其中：冒泡排序（稳定的排序）</p>
-<p><font color="red">注：下列改进的冒泡排序是从小到大排序</font></p>
+        <h1 id="毕设答辩问题总结"><a href="#毕设答辩问题总结" class="headerlink" title="毕设答辩问题总结"></a><center>毕设答辩问题总结</center></h1><h2 id="下位机问题："><a href="#下位机问题：" class="headerlink" title="下位机问题："></a>下位机问题：</h2><h3 id="1-简述51与STM32的区别"><a href="#1-简述51与STM32的区别" class="headerlink" title="1.简述51与STM32的区别"></a>1.简述51与STM32的区别</h3><p><strong>内核：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机采用的是51 Core，8Bit；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32采用的是ARM Cortex-M3，32Bit</p>
+<p><strong>地址空间：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机只有64KB；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32有4GB</p>
+<p><strong>片上储存器：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机ROM(只读存储器)只有2K-64K，RAM(易挥发性随机存取存储器)仅为128B-1K；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32的ROM为20K-1MB，RAM有8K-256K　</p>
+<p><strong>外设：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机仅有三个定时器和一个串口；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32却拥有AD，DA，Timer，WWDG，IWDG，CRC，DMA，IIC，SPI，USART等众多外设</p>
+<p><strong>操作系统：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机连RTOS都很难能跑；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32采用的是uClinux，uC/OS</p>
+<p>STM32可通过调用库函数进行编程开发，而51只能采用寄存器编程</p>
+<p>STM32是哈弗结构的， 数据处理起来很快。</p>
+<h3 id="2-简述RTC的功能以及程序实现过程"><a href="#2-简述RTC的功能以及程序实现过程" class="headerlink" title="2.简述RTC的功能以及程序实现过程"></a>2.简述<strong>RTC</strong>的功能以及程序实现过程</h3><p><strong>功能：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32的RTC外设,实质是一个掉电后还继续运行的<strong>定时器</strong>,它的功能十分简单,只有计时功能(也可以触发中断).但是从掉电还能继续运行来看,它是STM32中<strong>唯一一个</strong>具有这个功能功能的外设.(RTC外设的复杂之处不在于它的定时,而在于它掉电还可以继续运行的特性) 。</p>
+<p>程序实现过程：</p>
+<p><strong>编程过程：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.选择RTC_CLK的<strong>时钟源</strong>；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.配置RTC_CLK的<strong>分频系数</strong>，包括异步和同步两个；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.设置初始时间，包括日期；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.获取时间和日期，并显示。</p>
+<p>在程序中RTC 时钟<strong>配置函数</strong>主要实现两个功能：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、选择 RTC_CLK 的时钟源，根据宏定义来 决定使用 LSE 还是 LSI 作为 RTC_CLK 的时钟源，这里为了方便我们选择 LSE；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、设置 RTC_CLK 的 预 分 频 系 数 ， 包 括 异 步 和 同 步 两 个 ， 这 里 设 置 异 步 分 频 因 子 为 ASYNCHPREDIV（127），同步分频因子为 ASYNCHPREDIV（255），则产生的最终驱动日历的时钟 CK_SPRE=32.768/(127+1)*(255+1)=1HZ，则每秒更新一次。</p>
+<p><font color="red">注：</font></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在STM32中，有五个时钟源，为<font color="red"><strong>HSI</strong>、<strong>HSE</strong>、<strong>LSI</strong>、<strong>LSE</strong>、<strong>PLL</strong></font>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;①<strong>HSI</strong>是高速内部时钟，RC振荡器，频率为8MHz。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②<strong>HSE</strong>是高速外部时钟，可接石英/陶瓷谐振器，或者接外部时钟源，频率范围为4MHz~16MHz。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;③<strong>LSI</strong>是低速内部时钟，RC振荡器，频率为40kHz。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;④<strong>LSE</strong>是低速外部时钟，接频率为32.768kHz的石英晶体。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⑤<strong>PLL</strong>为锁相环倍频输出，其时钟输入源可选择为HSI/2、HSE或者HSE/2。倍频可选择为2~16倍，但是其输出频率最大不得超过72MHz。</p>
         
-          <a class="article-more-a" href="/2020/03/08/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/#more">more >></a>
         
       
 
@@ -184,7 +216,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/08/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">展开全文 >></a>
         </p>
       
 
@@ -214,36 +246,31 @@
 
 
   
-    <article id="post-浅谈数据结构排序算法中的希尔排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-QT事件处理与中文显示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的希尔排序</a>
+      <a class="article-title" href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/">QT事件处理与中文显示</a>
     </h1>
   
 
         
-        <a href="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-03-07T02:58:58.595Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+        <a href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/" class="archive-article-date">
+  	<time datetime="2020-05-20T09:48:19.807Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
-<p>其中：希尔排序（不稳定的排序）</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希尔排序又称：缩小增量排序。什么是不稳定的排序呢？意思是假如未排序前的序列存在两个值相同的元素，经过希尔排序后，这两个值在排完的有序序列中的先后位置会发生改变。反之，稳定的排序则不会发生改变。</p>
-<p>为什么希尔排序是不稳定的排序呢？因为：不同的增量可能把相同的关键字划分到两个子序列中执行直接插入排序。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希尔排序可以理解为：要对整个班级按照身高从低到高排列。希尔排序就是首先将班级人数分成5排，然后对每一列进行排序；当排序完后再将队伍分成2排，再次对每一列的同学进行身高排序；当再次排序完后最后队伍分成1排，对每一列的同学进行身高排序（此时就是简单的插入排序了）。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/1.png" alt></p>
-<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
-<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
+        <p>事件处理：当事件发生时，程序做出响应</p>
+<p>示例：点击“显示”按钮时，文本框显示对应内容</p>
+<p>首先采用QT设计师添加控件文本框和按钮</p>
         
-          <a class="article-more-a" href="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/#more">more >></a>
         
       
 
@@ -256,81 +283,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈数据结构排序算法中的折半插入排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的折半插入排序</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-03-06T23:22:29.837Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
-<p>其中：折半插入排序（稳定的排序）</p>
-<p>原理步骤：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1）首先，利用<font color="red">折半查找法</font>确定插入的正确位置；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2）其次，再一次性对元素进行移动；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3）最后，执行插入指令</p>
-<p>先讲讲折半查找法：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;折半查找也叫二分查找，该方法要求必须是线性存储结构。其原理就是每次与当前有序序列中间下标的数组进行比较，如果此时要插入的值比该A[mid]大，那么我就进入这个有序序列的右半部分继续进行查找，否则就进入左半部分继续查找。直到找到合适位置（low=high时）。</p>
-<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
-<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
-        
-          <a class="article-more-a" href="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/07/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/">展开全文 >></a>
         </p>
       
 
@@ -367,13 +320,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/06/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的直接插入排序</a>
+      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的直接插入排序</a>
     </h1>
   
 
         
-        <a href="/2020/03/06/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-03-06T09:01:43.680Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
+        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.414Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
         
       </header>
@@ -389,7 +342,7 @@
 <p><font color="red">注：下列两种方法都是从小到大排序</font></p>
 <p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
         
-          <a class="article-more-a" href="/2020/03/06/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/#more">more >></a>
         
       
 
@@ -402,7 +355,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/06/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
         </p>
       
 
@@ -432,29 +385,38 @@
 
 
   
-    <article id="post-数据结构练习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-浅谈数据结构排序算法中的折半插入排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">数据结构练习笔记</a>
+      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的折半插入排序</a>
     </h1>
   
 
         
-        <a href="/2020/03/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-03-05T00:24:14.481Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
+        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.410Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面是我个人做的一些比较经典的数据结构题目，内含代码解析</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
+<p>其中：折半插入排序（稳定的排序）</p>
+<p>原理步骤：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1）首先，利用<font color="red">折半查找法</font>确定插入的正确位置；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2）其次，再一次性对元素进行移动；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3）最后，执行插入指令</p>
+<p>先讲讲折半查找法：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;折半查找也叫二分查找，该方法要求必须是线性存储结构。其原理就是每次与当前有序序列中间下标的数组进行比较，如果此时要插入的值比该A[mid]大，那么我就进入这个有序序列的右半部分继续进行查找，否则就进入左半部分继续查找。直到找到合适位置（low=high时）。</p>
+<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
+<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
         
-          <a class="article-more-a" href="/2020/03/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/#more">more >></a>
         
       
 
@@ -467,7 +429,216 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-浅谈数据结构排序算法中的快速排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的快速排序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.406Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而交换类排序包括：冒泡排序和快速排序。</p>
+<p>其中：快速排序（不稳定的排序）</p>
+<p>特点：序列越无序，效率越高，快速排序是基于原问题分解成多个子问题，再递归地求解各个子问题。</p>
+<p>原理：每次选任一元素作为枢轴（一般选第一个元素），将比枢轴小的元素都放到枢轴前面，比枢轴大的元素都移到枢轴后面。（即类比于：每次选一个标兵，比该标兵矮的同学站左边，比标兵高的同学站右边）</p>
+<p><font color="red">注：下列两种方法的排序都是从小到大排序</font></p>
+<p>方法一：采用递归（较为容易理解）</p>
+        
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-浅谈数据结构排序算法中的希尔排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的希尔排序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.404Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
+<p>其中：希尔排序（不稳定的排序）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希尔排序又称：缩小增量排序。什么是不稳定的排序呢？意思是假如未排序前的序列存在两个值相同的元素，经过希尔排序后，这两个值在排完的有序序列中的先后位置会发生改变。反之，稳定的排序则不会发生改变。</p>
+<p>为什么希尔排序是不稳定的排序呢？因为：不同的增量可能把相同的关键字划分到两个子序列中执行直接插入排序。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希尔排序可以理解为：要对整个班级按照身高从低到高排列。希尔排序就是首先将班级人数分成5排，然后对每一列进行排序；当排序完后再将队伍分成2排，再次对每一列的同学进行身高排序；当再次排序完后最后队伍分成1排，对每一列的同学进行身高排序（此时就是简单的插入排序了）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/1.png" alt></p>
+<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
+<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
+        
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-浅谈数据结构排序算法中的冒泡算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">浅谈数据结构排序算法中的冒泡算法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而交换类排序包括：冒泡排序和快速排序。</p>
+<p>其中：冒泡排序（稳定的排序）</p>
+<p><font color="red">注：下列改进的冒泡排序是从小到大排序</font></p>
+        
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -504,13 +675,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/20/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">浅谈BP神经网络的原理</a>
+      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">浅谈BP神经网络的原理</a>
     </h1>
   
 
         
-        <a href="/2020/02/20/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-02-19T17:42:53.153Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+        <a href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.401Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
         
       </header>
@@ -524,7 +695,7 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BP算法基本原理：利用输出后的误差来估计输出层的直接前导层的误差，再用这个误差估计更前一层的误差，如此一层一层的反传下去，就获得了所有其他各层的误差估计。</p>
 <p><strong><font color="red">特点：信号的正向传播&amp;误差的反向传播</font></strong></p>
         
-          <a class="article-more-a" href="/2020/02/20/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/#more">more >></a>
         
       
 
@@ -537,7 +708,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/20/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">展开全文 >></a>
         </p>
       
 
@@ -567,29 +738,29 @@
 
 
   
-    <article id="post-C++个人学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数据结构练习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/18/C++%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">C++个人学习笔记</a>
+      <a class="article-title" href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">数据结构练习笔记</a>
     </h1>
   
 
         
-        <a href="/2020/02/18/C++%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-02-17T17:11:01.793Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
+        <a href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.398Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面是我个人做的一些比较经典的C++编程题目，内含代码解析</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面是我个人做的一些比较经典的数据结构题目，内含代码解析</p>
         
-          <a class="article-more-a" href="/2020/02/18/C++%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
         
       
 
@@ -602,7 +773,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/18/C++%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
         </p>
       
 
@@ -632,30 +803,59 @@
 
 
   
-    <article id="post-论主成分分析法与因子分析的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数学建模介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/">浅谈主成分分析法与因子分析的区别（个人观点）</a>
+      <a class="article-title" href="/2020/05/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%BB%8B%E7%BB%8D/">数学建模介绍</a>
     </h1>
   
 
         
-        <a href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2020-02-12T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+        <a href="/2020/05/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.394Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过<strong>主成分分析</strong>所得来的新变量是原始变量的线性组合，每个主成分都是由原有P个变量线组合得到，在诸多主成分Z中，Z1在总方差中占的比重最大，说明它综合原有变量的能力最强，其余主成分在总方差中占的比重依次递减，说明越往后的主成分综合原信息的能力越弱。以后的分析可以用前面几个方差最大的主成分来进行，一般情况下，要求前几个z所包含的信息不少于原始信息的85％ ，这样既减少了变量的数目，又能够用较少的主成分反映原有变量的绝大部分信息。如利用主成分来消除多元回归方程的多重共线性，利用主成分来筛选多元线性回归方程中的变量等。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过<strong>因子分析</strong>得来的新变量是对每一个原始变量进行内部剖析。打比喻来说，原始变量就如成千上万的糕点，每一种糕点的原料都有面粉、油、糖及相应的不同原料，这其中，面粉、油、糖是所有糕点的共同材料，这正好象是因子分析中的新变量即因子变量。正确选择因子变量后，如果想考虑成千上万糕点的物价变动， 只需重点考虑面粉、油、糖等公共因子的物价变动即可。所以因子分析不是对原始变量的重新组合，而是对原始变量进行分解，分解为公共因子与特殊因子两部分。即因子分析就是要利用少数几个公共因子去解释较多个要观测变量中存在的复杂关系，它把原始变量分解为两部分因素，一部分是由所有变量共同具有的少数几个公共因子构成的，另一部分是每个原始变量独自具有的因素，即特殊因子。</p>
-<p><font color="red">主成分分析法与因子分析的区别：</font></p>
+        <p><strong>首先</strong>，我们先说说数学建模主要比赛及具体时间：</p>
+<ul>
+<li><p><font color="red">2月中旬：MCM/ICM：美国大学生数学建模竞赛</font>&gt;</p>
+</li>
+<li><p>4月中旬：TZMCM：数学中国数学建模网络挑战赛</p>
+</li>
+<li><p>4月18号：东北三省大学生数学建模联赛</p>
+</li>
+<li><p>4月30号：华中地区大学生数学建模联赛</p>
+</li>
+<li><p><font color="red">5月1号：苏北地区大学生数学建模联赛</font></p>
+</li>
+<li><p><font color="red">5月27号：EMCM：中国电机工程学（电工）杯数学建模竞赛</font></p>
+</li>
+<li><p>5月27号：MathorCup大学生数学建模挑战赛/&lt;</p>
+</li>
+<li><p><font color="red">9月中旬：CUMCM：全国大学生数学建模竞赛</font></p>
+</li>
+<li><p><font color="red">9月24号：GMCM：研究生数学建模竞赛</font></p>
+</li>
+<li><p>11月17号：APMCM：亚太地区大学生数学建模竞赛</p>
+</li>
+<li><p>11月24号：CAMCM：数学中国数学建模国际赛（小美赛）</p>
+</li>
+</ul>
+<p><font color="red"><strong>注意：</strong>上面红色字体的比赛是含金量比较高的，推荐大家参加这几项比赛就行了。其中：中国电机工程学（电工）杯数学建模竞赛建议工科类的同学都可以参加一下，题目主要是电子类型的，含金量还是ok的。</font></p>
+<p>数学建模竞赛涉及到的算法主要分为两大类型（统计、优化）</p>
+<p>特点：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 统计：1.预测与预报、2.评价与决策、3.分类与判别、4.关联与因果</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 优化：5.优化与控制</p>
+<p>接下来我们来详细讲讲：</p>
         
-          <a class="article-more-a" href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%BB%8B%E7%BB%8D/#more">more >></a>
         
       
 
@@ -668,145 +868,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Matlab基础操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">Matlab基础操作</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-02-12T16:34:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/1.png" alt></p>
-        
-          <a class="article-more-a" href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-层次分析法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/">层次分析法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-02-11T15:11:09.147Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>层次分析法（AHP法）是一种解决<strong>多目标</strong>的复杂问题的<strong>定性</strong>与<strong>定量</strong>相结合的<strong>决策分析方法</strong>。</p>
-<p>注：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定性：通过非量化的手段来探究事物的本质。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 定量：以数量形式存在着的属性，并因此可以对其进行测量。</p>
-<p>举个例子：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>人物</strong>：小强</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>目的</strong>：打算从北京去上海玩</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>要求</strong>：分析他是坐动车去呢？还是坐飞机去呢？还是坐汽车去呢？还是跑过去呢？请根据他个人情况进行最优方案的选择</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上述举例的这道题就是一道采用层次分析法来解决的经典题目。现在我们来进行一一分析。</p>
-        
-          <a class="article-more-a" href="/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%BB%8B%E7%BB%8D/">展开全文 >></a>
         </p>
       
 

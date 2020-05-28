@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | 吴健强的个人博客网站</title>
+  <title>C++与数据结构知识点总结 | 吴健强的个人博客网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机知识分享与学习网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴健强的个人博客网站">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+  <meta name="description" content="static：用来说明是静态变量 特点： 1.如果是在函数外面定义的，那么效果和全局变量类似，但static定义的变量只能在当前的C文件中使用 2.如果是在函数内部定义的，那么这个变量只初始化一次 const: const 常量类型 常量名&#x3D;常量表达式；(固定不变) int const等同于const int malloc和free： new和delete： new：开辟一个存储空间 delete">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++与数据结构知识点总结">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
-<meta property="og:description" content="计算机知识分享与学习网站">
+<meta property="og:description" content="static：用来说明是静态变量 特点： 1.如果是在函数外面定义的，那么效果和全局变量类似，但static定义的变量只能在当前的C文件中使用 2.如果是在函数内部定义的，那么这个变量只初始化一次 const: const 常量类型 常量名&#x3D;常量表达式；(固定不变) int const等同于const int malloc和free： new和delete： new：开辟一个存储空间 delete">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-13T10:37:32.374Z">
+<meta property="article:modified_time" content="2020-03-11T04:03:18.680Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
@@ -145,103 +147,274 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-C++与数据结构知识点总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++与数据结构知识点总结
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>static</strong>：用来说明是静态变量</p>
+<p>特点：</p>
+<p>1.如果是在<font color="red">函数外面定义</font>的，那么效果和全局变量类似，但static定义的变量只能在当前的C文件中使用</p>
+<p>2.如果是在<font color="red">函数内部定义</font>的，那么这个变量只初始化一次</p>
+<p>const:</p>
+<p>const 常量类型 常量名=常量表达式；(固定不变)</p>
+<p>int const等同于const int</p>
+<p>malloc和free：</p>
+<p>new和delete：</p>
+<p>new：开辟一个存储空间</p>
+<p>delete：撤销new建立的存储空间，防止内存泄漏。</p>
+<p>try和throw：</p>
+<p>stlen()和str():</p>
+<p><strong>析构函数</strong>的调用顺序：</p>
+<p>先构造的后析构，后构造的先析构。相当于栈的先进后出</p>
+<p>拷贝构造函数：</p>
+<p> CExample(const CExample&amp; C)　就是我们自定义的拷贝构造函数。可见，拷贝构造函数是一种<strong>特殊的</strong>构造函数<strong>，函数的名称必须和类名称一致，它必须的一个参数是本类型的一个</strong>引用变量**。</p>
+<p><a href="https://www.cnblogs.com/alantu2018/p/8459250.html" target="_blank" rel="noopener">https://www.cnblogs.com/alantu2018/p/8459250.html</a></p>
+<p><strong>friend</strong>：友元，给予函数访问私有部分内容的权限</p>
+<p>例子：friend int f(A&amp;f1,B&amp;f2)</p>
+<p><strong>引用</strong>：等同于取别名</p>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> *b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	........</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">5</span>;</span><br><span class="line">	f(&amp;a,&amp;b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个例子可以看出&amp;a要跟 *a配合使用，若主函数中调用f()不写&amp;a，而是写成a的话，那么只有在f()这个函数里变量a,b才会改变，等到执行完这个子函数f()后，值又会重新变为刚输入f()子函数时的数值。（即：在f()函数中其实是形参a,b发生了改变，而实参a,b并没有变化）</p>
+<p>为什么当子函数格式为：void f(int *a,*b)时，在调用子函数的输入一定要为f(&amp;a,&amp;b)呢？</p>
+<p>原因是：引用得到的是地址，当子函数用指针来接收地址时，函数中的a,b发生变化时，被引用的值同时也发生变化，不会受到函数声明周期的影响。</p>
+<p>C++中：<strong>参数传递</strong>的方法是想“实虚结合”</p>
+<ul>
+<li>按值传递：调用函数本身，不对实参进行操作，即使形参值发生改变，实参的值仍然不变；</li>
+<li>地址传递：形参为指针，实参跟着形参发生改变；例：f(a,b);void f(&amp;a,&amp;b);</li>
+<li>引用传递：引用得到的是地址，相当于输入的是地址，子函数用指针来接收地址;例：f(&amp;a,&amp;b);void f(*a,*b)</li>
+</ul>
+<p><strong>函数</strong>的<strong>重载</strong>：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：同时定义这三个函数void f(int x)，void f(float x), void f(double x)</span><br></pre></td></tr></table></figure>
+
+<p>从上面看；：这就是重载。即：定义的函数名字相同，但是输入参数的类型不同</p>
+<p><strong>运算符</strong>的<strong>重载</strong>：</p>
+<p><strong>运算符重载的基本原则：</strong></p>
+<p>格式：如operator+（）必须是有效的C++运算符。</p>
+<ul>
+<li>不能虚构运算符，如operator@（）</li>
+<li>重载后的运算符至少要有一个操作数是用户自定义的类型不能违反运算符原来的句法规则，如取模%不能重载成使用操作数</li>
+<li>不能修改运算符的优先级</li>
+</ul>
+<p><strong>继承方式</strong>：</p>
+<p>分为：公用继承、私有继承、受保护继承</p>
+<p>特点：</p>
+<ul>
+<li>无论是什么方式的继承，都只继承基类的公用成员和保护成员，而私有成员、构造函数、析构函数都是不被继承的；</li>
+<li>公用继承不改变访问属性；</li>
+<li>私有、受保护继承则根据继承方式，将从基类继承过来的成员的访问属性全改为对应的继承方式;</li>
+</ul>
+<p><font color="red">注：保护成员：不能被外界引用，但可以被<strong>派生类</strong>的成员引用.(派生类：通过继承方式，新的类可以从已有的类中派生。那么用于派生的类统称为这个派生类的“基类”)</font></p>
+<p><font color="red">注：若是调用时不写继承方式，则默认为私有继承哦。</font></p>
+<p>当存在继承关系时，执行的顺序为：</p>
+<p><strong>虚函数</strong>：</p>
+<p>定义：被virtual关键字修饰的成员函数，就是虚函数。虚函数的作用，用专业术语来解释就是实现多态性。（多态性：是将接口与实现进行分离；简单来讲就是实现以共同的方法，但因个体差异，而采用不同的策略。）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">例<span class="number">1</span>：</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	A()&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span><span class="comment">//声明为虚函数</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"11111111111"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span><span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		B()&#123;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span><span class="comment">//子类和父类具有相同的函数名</span></span></span><br><span class="line"><span class="function">		</span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"22222222222"</span>&lt;&lt;<span class="built_in">endl</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	A *a= <span class="keyword">new</span> B();</span><br><span class="line">	a-&gt;f();<span class="comment">//基类指针调用派生类的非虚函数</span></span><br><span class="line">	<span class="keyword">delete</span> a;</span><br><span class="line">&#125;</span><br><span class="line">输出：</span><br><span class="line">	<span class="number">22222222222</span></span><br><span class="line">	<span class="number">11111111111</span></span><br></pre></td></tr></table></figure>
+
+<p>假如不声明为虚函数会怎样呢？</p>
+<p>答：如果不声明为虚函数，那么试图通过基类指针调用派生类的非虚函数是不行的。如果非要这样写，那么输出的结果就是11111111111。</p>
+<p>为什么会这样呢？</p>
+<p>答：因为：基类指针是用来指向基类对象的，如果用它指向派生类对象，则自动进行指针类型转换，将派生类的对象的指针先转换为基类指针对象，这样，基类指针指向的是派生类对象中的基类部分，所以不声明为虚函数的话，是没法执行派生类中相同函数名的函数的。我的理解是：virtual这个关键字是要告诉编译器在派生类中还可能存在着相同函数名的函数，使得基类指针去往派生类中寻找。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2020-02-12T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/">浅谈主成分分析法与因子分析的区别（个人观点）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-02-12T16:34:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/13/C++%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C++个人学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VS2013编译64位QT4.8.6源代码（超详细版）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/Matlab%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">Matlab基础操作</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="C++与数据结构知识点总结" data-title="C++与数据结构知识点总结" data-url="http://yoursite.com/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/", 
+    sourceId: "C++与数据结构知识点总结",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-02-09T09:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
+  <div id="SOHUCS" sid="C++与数据结构知识点总结" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -264,8 +437,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
