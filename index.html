@@ -176,32 +176,6 @@
 <p><strong>片上储存器：</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机ROM(只读存储器)只有2K-64K，RAM(易挥发性随机存取存储器)仅为128B-1K；</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32的ROM为20K-1MB，RAM有8K-256K　</p>
-<p><strong>外设：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机仅有三个定时器和一个串口；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32却拥有AD，DA，Timer，WWDG，IWDG，CRC，DMA，IIC，SPI，USART等众多外设</p>
-<p><strong>操作系统：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机连RTOS都很难能跑；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32采用的是uClinux，uC/OS</p>
-<p>STM32可通过调用库函数进行编程开发，而51只能采用寄存器编程</p>
-<p>STM32是哈弗结构的， 数据处理起来很快。</p>
-<h3 id="2-简述RTC的功能以及程序实现过程"><a href="#2-简述RTC的功能以及程序实现过程" class="headerlink" title="2.简述RTC的功能以及程序实现过程"></a>2.简述<strong>RTC</strong>的功能以及程序实现过程</h3><p><strong>功能：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32的RTC外设,实质是一个掉电后还继续运行的<strong>定时器</strong>,它的功能十分简单,只有计时功能(也可以触发中断).但是从掉电还能继续运行来看,它是STM32中<strong>唯一一个</strong>具有这个功能功能的外设.(RTC外设的复杂之处不在于它的定时,而在于它掉电还可以继续运行的特性) 。</p>
-<p>程序实现过程：</p>
-<p><strong>编程过程：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.选择RTC_CLK的<strong>时钟源</strong>；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.配置RTC_CLK的<strong>分频系数</strong>，包括异步和同步两个；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.设置初始时间，包括日期；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.获取时间和日期，并显示。</p>
-<p>在程序中RTC 时钟<strong>配置函数</strong>主要实现两个功能：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、选择 RTC_CLK 的时钟源，根据宏定义来 决定使用 LSE 还是 LSI 作为 RTC_CLK 的时钟源，这里为了方便我们选择 LSE；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、设置 RTC_CLK 的 预 分 频 系 数 ， 包 括 异 步 和 同 步 两 个 ， 这 里 设 置 异 步 分 频 因 子 为 ASYNCHPREDIV（127），同步分频因子为 ASYNCHPREDIV（255），则产生的最终驱动日历的时钟 CK_SPRE=32.768/(127+1)*(255+1)=1HZ，则每秒更新一次。</p>
-<p><font color="red">注：</font></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在STM32中，有五个时钟源，为<font color="red"><strong>HSI</strong>、<strong>HSE</strong>、<strong>LSI</strong>、<strong>LSE</strong>、<strong>PLL</strong></font>。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;①<strong>HSI</strong>是高速内部时钟，RC振荡器，频率为8MHz。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②<strong>HSE</strong>是高速外部时钟，可接石英/陶瓷谐振器，或者接外部时钟源，频率范围为4MHz~16MHz。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;③<strong>LSI</strong>是低速内部时钟，RC振荡器，频率为40kHz。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;④<strong>LSE</strong>是低速外部时钟，接频率为32.768kHz的石英晶体。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⑤<strong>PLL</strong>为锁相环倍频输出，其时钟输入源可选择为HSI/2、HSE或者HSE/2。倍频可选择为2~16倍，但是其输出频率最大不得超过72MHz。</p>
         
           <a class="article-more-a" href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/#more">more >></a>
         
