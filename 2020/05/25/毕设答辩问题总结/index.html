@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/9.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/10.png">
 <meta property="article:published_time" content="2020-05-25T15:36:29.523Z">
-<meta property="article:modified_time" content="2020-05-29T09:08:15.732Z">
+<meta property="article:modified_time" content="2020-05-29T10:09:22.667Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
@@ -334,7 +334,9 @@
 <p>在配置 as608时要特别注意，串口通信的中断配置，除了要使能接收中断外， 还要使能总线空闲中断，目的是为了使环形缓冲区能完整的把来自指纹识别模块的应打包 数据记录下来，防止丢包。 </p>
 <p>如下：</p>
 <p><img src="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/5.png" alt></p>
-<p>在该实验中使用了 2个中断，一个是 STM32  USART串口接收中断,用以接收来自指纹 识别模块反馈的应答包，并将数据缓存到环行缓冲区中，QUEUE_DATA_TYPE是一类环 形数据结构体类型。环形缓冲区，顾名思义该缓冲区是环形结构，就是缓冲区利用写指针不断缓存接受到的数据时，当写指针访问到缓冲区的最后一个内存位置的时候，当来新的数据需要缓存的时候，写指针回到环形缓冲区的起点位置。缓存过程就类似一个环一样。 代码 data_p-&gt;head中是指向环形缓冲区的写指针的头位置，从头指针位置开始，每当缓冲 区缓存一个字节，写指针向下偏移一个位置，如此一个一个缓存应答包数据（ *(data_p-&gt;head + data_p-&gt;len) = ucCh; ）。 另一个是 EXTI 上升沿/下降沿触发中断（ if (EXTI_GetITStatus(AS608_TOUCHOUT_INT_EXTI_LINE) != RESET) ），来一次中断信号灯反转一次： 灯初始化配置为熄灭状态，当手指放入指纹识别模块时，会产生一个边沿触发，灯反转 （ LED1_TOGGLE; ）变亮，当手指从传感器移开时，再次触发一个边沿中断信号，灯再次反转 熄灭，如此来探测传感器上有无手指触摸。另外，串口通信中断优先级高于 EXTI中断， </p>
+<p>该实验使用了2个中断，中断1使用串口接受收中断，采用环形缓冲方式缓存来自指纹模块反馈的信息。中断2通过EXTI中断方式，通过指纹模块的wak线电压变化检测有无手指按下，发现有手指按下指示灯亮，反之则灭。</p>
+<p>在该实验中使用了 2个中断，一个是 STM32  USART串口接收中断,用以接收来自指纹 识别模块反馈的应答包，并将数据缓存到环行缓冲区中，QUEUE_DATA_TYPE是一类环 形数据结构体类型。环形缓冲区，顾名思义该缓冲区是环形结构，就是缓冲区利用写指针不断缓存接受到的数据时，当写指针访问到缓冲区的最后一个内存位置的时候，当来新的数据需要缓存的时候，写指针回到环形缓冲区的起点位置。缓存过程就类似一个环一样。 代码 data_p-&gt;head中是指向环形缓冲区的写指针的头位置，从头指针位置开始，每当缓冲 区缓存一个字节，写指针向下偏移一个位置，如此一个一个缓存应答包数据（ *(data_p-&gt;head + data_p-&gt;len) = ucCh; ）。</p>
+<p> 另一个是 EXTI 上升沿/下降沿触发中断（ if (EXTI_GetITStatus(AS608_TOUCHOUT_INT_EXTI_LINE) != RESET) ），来一次中断信号灯反转一次： 灯初始化配置为熄灭状态，当手指放入指纹识别模块时，会产生一个边沿触发，灯反转 （ LED1_TOGGLE; ）变亮，当手指从传感器移开时，再次触发一个边沿中断信号，灯再次反转 熄灭，如此来探测传感器上有无手指触摸。另外，串口通信中断优先级高于 EXTI中断， </p>
 <p>如下：</p>
 <p><img src="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/6.png" alt></p>
 <p>在指纹库不存在用户指纹模版时，录指纹过程可以分为以下几个步骤：</p>
@@ -439,7 +441,9 @@
 <p>2.5ms———–180度；</p>
 <p>在我的程序中，0 ~ 180度对应的程序为：</p>
 <p>TIM_SetCompare1(GENERAL_TIM,5) ~ TIM_SetCompare1(GENERAL_TIM,25) </p>
-<h2 id="上位机问题："><a href="#上位机问题：" class="headerlink" title="上位机问题："></a><strong>上位机问题</strong>：</h2><h3 id="1-简述socket原理与编程实现步骤："><a href="#1-简述socket原理与编程实现步骤：" class="headerlink" title="1.简述socket原理与编程实现步骤："></a>1.简述<strong>socket</strong>原理与编程实现步骤：</h3><p><strong>编程步骤：</strong></p>
+<h2 id="上位机问题："><a href="#上位机问题：" class="headerlink" title="上位机问题："></a><strong>上位机问题</strong>：</h2><h3 id="1-简述socket原理与编程实现步骤："><a href="#1-简述socket原理与编程实现步骤：" class="headerlink" title="1.简述socket原理与编程实现步骤："></a>1.简述<strong>socket</strong>原理与编程实现步骤：</h3><p>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。</p>
+<p>服务器端先初始化Socket，然后与端口绑定(bind)，对端口进行监听(listen)，调用accept阻塞，等待客户端连接。在这时如果有个客户端初始化一个Socket，然后连接服务器(connect)，如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接收请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。</p>
+<p><strong>编程步骤：</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.创建socket对象</p>
 <p>s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)#创建TCP Socket</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.需要自己绑定一个ip地址和端口号</p>
