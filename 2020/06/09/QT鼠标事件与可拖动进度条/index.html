@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 吴健强的个人博客网站</title>
+  <title>QT鼠标事件与可拖动进度条 | 吴健强的个人博客网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机知识分享与学习网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴健强的个人博客网站">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="鼠标事件 鼠标事件分为四种： AfSeekBar: 可拖动，可显示进度  鼠标事件分为四种：  (1)按下Press  (2)抬起Release  (3)移动Move  (4)双击Double Click 鼠标事件继承于QWidget void mouseDoubleClickEvent ( QMouseEvent * event )  void mouseMoveEvent ( QMouseEv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT鼠标事件与可拖动进度条">
+<meta property="og:url" content="http://yoursite.com/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
-<meta property="og:description" content="计算机知识分享与学习网站">
+<meta property="og:description" content="鼠标事件 鼠标事件分为四种： AfSeekBar: 可拖动，可显示进度  鼠标事件分为四种：  (1)按下Press  (2)抬起Release  (3)移动Move  (4)双击Double Click 鼠标事件继承于QWidget void mouseDoubleClickEvent ( QMouseEvent * event )  void mouseMoveEvent ( QMouseEv">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/1.png">
+<meta property="article:published_time" content="2020-06-09T13:28:50.190Z">
+<meta property="article:modified_time" content="2020-06-09T17:07:34.445Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/1.png">
   
     <link rel="alternative" href="/atom.xml" title="吴健强的个人博客网站" type="application/atom+xml">
   
@@ -145,295 +149,267 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-QT鼠标事件与可拖动进度条" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      QT鼠标事件与可拖动进度条
+    </h1>
+  
+
+        
+        <a href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/" class="archive-article-date">
+  	<time datetime="2020-06-09T13:28:50.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>鼠标事件</strong></p>
+<p>鼠标事件分为四种：</p>
+<p>AfSeekBar: 可拖动，可显示进度 </p>
+<p>鼠标事件分为四种：</p>
+<p> (1)按下Press</p>
+<p> (2)抬起Release</p>
+<p> (3)移动Move</p>
+<p> (4)双击Double Click</p>
+<p>鼠标事件继承于QWidget</p>
+<p>void mouseDoubleClickEvent ( QMouseEvent * event ) </p>
+<p>void mouseMoveEvent ( QMouseEvent * event ) </p>
+<p>void mousePressEvent ( QMouseEvent * event ) </p>
+<p>void mouseReleaseEvent ( QMouseEvent * event )<br>重写这四个函数，就能够让自定义控件支持鼠标操作。</p>
+<a id="more"></a>
+
+<p><strong>QMouseEvent：</strong></p>
+<p>Qt中用QMouseEvent类来表达一个鼠标事件</p>
+<p> x, y :  坐标</p>
+<p> globalX, globalY： 全局坐标 （相对于整个屏幕） </p>
+<p>button: 鼠标左键、右键、中键</p>
+<p><strong>事件与信号</strong></p>
+<p>自定义控件时，事件发生时，应该以信号的形式发送出去。<br>例：对于一个按钮，当它被按下时（press,release)，对外发射了一个clicked()信号</p>
+<p><strong>自定义signal</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class ... </span><br><span class="line">&#123;</span><br><span class="line">signals:</span><br><span class="line">    void Clicked(QPoint pos); </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>当事件发生时， emit  Clicked ( pos ); 通过emit操作将信号发射出去了。<br><font color="red">注：emit并非C++语法，是Qt里面自己加的概念。</font></p>
+<p>示例：自定义一个进度条SeekBar，当鼠标移入后，进入高亮状态；当鼠标移出后，回到普通状态 </p>
+<p><strong>AfSeekBar</strong></p>
+<p>由于Qt自带的QSlider有点简陋，我们自定义一个SeekBar </p>
+<p><font color="red">注：QSlider部件提供了一个垂直或水平滑动条。滑块是一个用于控制有界值的典型部件。它允许用户沿水平或垂直方向移动滑块，并将滑块所在的位置转换成一个合法范围内的值</font></p>
+<p>AfSeekBar: 可拖动，可显示进度</p>
+<p>设定高亮/普通状态的触发事件为：void focused(bool yes); </p>
+<p>当鼠标单击后，设置新的位置，并触发事件：void clicked(int progress); </p>
+<p>设置当前进度条范围（min~max）</p>
+<p>给出提示框，动态显示当前位置鼠标所指向的进度位置：void tracking(int progress, QPoint pos); </p>
+<p>AfOverlay.h:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#ifndef AFOVERLAY_H</span><br><span class="line">#define AFOVERLAY_H</span><br><span class="line"></span><br><span class="line">#include &lt;QtGui&gt;</span><br><span class="line"></span><br><span class="line">class AfOverlay : public QWidget</span><br><span class="line">&#123;</span><br><span class="line">	Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">	AfOverlay(QWidget *parent);</span><br><span class="line">	~AfOverlay();</span><br><span class="line"></span><br><span class="line">	void setText(const QString&amp; text);</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	virtual void paintEvent(QPaintEvent *event);</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	QString m_text;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; AFOVERLAY_H</span><br></pre></td></tr></table></figure>
+
+<p>AfOverlay.c:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;AfOverlay.h&quot;</span><br><span class="line"></span><br><span class="line">AfOverlay::AfOverlay(QWidget *parent)</span><br><span class="line">	: QWidget(parent)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;setWindowFlags(Qt::Window | Qt::FramelessWindowHint );</span><br><span class="line">	setWindowFlags(Qt::ToolTip);</span><br><span class="line">	setAttribute(Qt::WA_TranslucentBackground);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">AfOverlay::~AfOverlay()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void AfOverlay::setText(const QString&amp; text)</span><br><span class="line">&#123;</span><br><span class="line">	m_text &#x3D; text;</span><br><span class="line">	update();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void AfOverlay::paintEvent(QPaintEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">	QPainter painter(this);</span><br><span class="line">	painter.setRenderHint(QPainter::Antialiasing);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 背景透明</span><br><span class="line">	int w &#x3D; width(), h &#x3D; height();</span><br><span class="line">	painter.setPen(QColor(0,0,0,0));</span><br><span class="line">	painter.setBrush(QColor(0xFF,0xFF,0xFF,0xAA));</span><br><span class="line">	&#x2F;&#x2F;painter.setBrush(QColor(0xFF,0xFF,0xFF));</span><br><span class="line">	painter.drawRect(0,0,w,h);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 显示文本：所选区域的大小</span><br><span class="line">	QFont font &#x3D; painter.font();</span><br><span class="line">	font.setPixelSize(14);</span><br><span class="line">	painter.setFont(font);</span><br><span class="line"></span><br><span class="line">	painter.setPen(QPen(QColor(0x33,0X33,0X33)));</span><br><span class="line">	QRect textRect(0,0, w, h);</span><br><span class="line">	painter.drawText(textRect, Qt::AlignCenter, m_text);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>AfSeekBar.h:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#ifndef AFSEEKBAR_H</span><br><span class="line">#define AFSEEKBAR_H</span><br><span class="line"></span><br><span class="line">#include &lt;QtGui&gt;</span><br><span class="line"></span><br><span class="line">class AfSeekBar : public QWidget</span><br><span class="line">&#123;</span><br><span class="line">	Q_OBJECT</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">public:</span><br><span class="line">	AfSeekBar(QWidget *parent);</span><br><span class="line">	~AfSeekBar();</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">	void clicked(int progress);</span><br><span class="line">	void tracking(int progress, QPoint pos);</span><br><span class="line">	void focused(bool yes);</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">	void setRange(int range);</span><br><span class="line">	void setProgress(int progress);</span><br><span class="line">	int range() const;</span><br><span class="line">	int progress() const;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	virtual QSize	sizeHint () const;</span><br><span class="line">	virtual void	enterEvent ( QEvent * event );</span><br><span class="line">	virtual void	leaveEvent ( QEvent * event );</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;virtual void	mouseDoubleClickEvent ( QMouseEvent * event );</span><br><span class="line">	virtual void	mouseMoveEvent ( QMouseEvent * event );</span><br><span class="line">	virtual void	mousePressEvent ( QMouseEvent * event );</span><br><span class="line">	virtual void	mouseReleaseEvent ( QMouseEvent * event );</span><br><span class="line">	virtual void	paintEvent ( QPaintEvent * event );</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	int position2progress(int postion);</span><br><span class="line">	int progress2position(int progress);</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	int m_range;</span><br><span class="line">	int m_progress;</span><br><span class="line">	bool m_focused;</span><br><span class="line"></span><br><span class="line">	bool m_pressed;</span><br><span class="line">	QRect m_validRegion;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; AFSEEKBAR_H</span><br></pre></td></tr></table></figure>
+
+<p>AfSeekBar.c:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;AfSeekBar.h&quot;</span><br><span class="line"></span><br><span class="line">AfSeekBar::AfSeekBar(QWidget *parent)</span><br><span class="line">	: QWidget(parent)</span><br><span class="line">&#123;</span><br><span class="line">	m_focused &#x3D; false;</span><br><span class="line">	m_pressed &#x3D; false;</span><br><span class="line"></span><br><span class="line">	m_range &#x3D; 100;</span><br><span class="line">	m_progress &#x3D; 0;</span><br><span class="line">	&#x2F;&#x2F;setFocusPolicy(Qt::StrongFocus);</span><br><span class="line">	setMouseTracking(true);</span><br><span class="line">	setCursor(Qt::PointingHandCursor);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">AfSeekBar::~AfSeekBar()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void AfSeekBar::setRange(int range)</span><br><span class="line">&#123;</span><br><span class="line">	m_range &#x3D; range;</span><br><span class="line">	update();</span><br><span class="line">&#125;</span><br><span class="line">void AfSeekBar::setProgress(int progress)</span><br><span class="line">&#123;</span><br><span class="line">	m_progress &#x3D; progress;</span><br><span class="line">	update();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int AfSeekBar::range() const</span><br><span class="line">&#123;</span><br><span class="line">	return m_range;</span><br><span class="line">&#125;</span><br><span class="line">int AfSeekBar::progress() const</span><br><span class="line">&#123;</span><br><span class="line">	return m_progress;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">QSize	AfSeekBar::sizeHint () const</span><br><span class="line">&#123;</span><br><span class="line">	return QSize(100,20);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void	AfSeekBar::paintEvent ( QPaintEvent * event )</span><br><span class="line">&#123;</span><br><span class="line">	QWidget::paintEvent(event);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;m_focused &#x3D; true;</span><br><span class="line">	&#x2F;&#x2F;m_progress &#x3D; 30;</span><br><span class="line"></span><br><span class="line">	QPainter painter(this);</span><br><span class="line">	painter.setRenderHint(QPainter::Antialiasing);</span><br><span class="line"></span><br><span class="line">	int width &#x3D; this-&gt;width()-20;</span><br><span class="line">	int height &#x3D; this-&gt;height();</span><br><span class="line">	int vcenter &#x3D; height&#x2F;2;</span><br><span class="line">	int xoff &#x3D; 0;</span><br><span class="line"></span><br><span class="line">	QColor colorLeft  &#x3D; QColor(44, 143, 214);</span><br><span class="line">	QColor colorRight &#x3D; QColor(0x888888);</span><br><span class="line">	QColor colorHandle &#x3D; QColor(51, 153, 255); &#x2F;&#x2F;QColor(246, 83, 39);; &#x2F;&#x2F;QColor(0xDDDDDD); &#x2F;&#x2F; 手柄颜色</span><br><span class="line">	QColor colorHandleFrame &#x3D; QColor(0xCCCCCC);</span><br><span class="line"></span><br><span class="line">	int position &#x3D; xoff + m_progress * width &#x2F; m_range;</span><br><span class="line">	if(!m_focused)</span><br><span class="line">	&#123;</span><br><span class="line">		&#x2F;&#x2F; 细线模式</span><br><span class="line">		QPen pen;</span><br><span class="line">		pen.setWidth(2); &#x2F;&#x2F; 线宽</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; 左半段</span><br><span class="line">		pen.setColor(colorLeft);</span><br><span class="line">		painter.setPen(pen);</span><br><span class="line">		painter.drawLine(QPoint(0, vcenter), QPoint(position, vcenter));</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; 右半段</span><br><span class="line">		pen.setColor(colorRight);</span><br><span class="line">		painter.setPen(pen);</span><br><span class="line">		painter.drawLine(QPoint(position, vcenter),QPoint(width, vcenter));</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; 小圆球</span><br><span class="line">		pen.setWidth(1);</span><br><span class="line">		pen.setColor(colorHandleFrame);</span><br><span class="line">		painter.setPen(pen);</span><br><span class="line">		painter.setBrush(colorHandle);</span><br><span class="line">		painter.drawEllipse(QPoint(position+5,vcenter),5,5);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		&#x2F;&#x2F; 粗线模式</span><br><span class="line">		QPen pen;</span><br><span class="line">		pen.setWidth(4); &#x2F;&#x2F; 线宽</span><br><span class="line">		&#x2F;&#x2F;vcenter -&#x3D; 4;</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; 左半段</span><br><span class="line">		pen.setColor(colorLeft);</span><br><span class="line">		painter.setPen(pen);</span><br><span class="line">		painter.drawLine(QPoint(0, vcenter), QPoint(position, vcenter));</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; 右半段</span><br><span class="line">		pen.setColor(colorRight);</span><br><span class="line">		painter.setPen(pen);</span><br><span class="line">		painter.drawLine(QPoint(position, vcenter),QPoint(width, vcenter));</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; 手柄</span><br><span class="line">		pen.setWidth(1);</span><br><span class="line">		pen.setColor(colorHandleFrame);</span><br><span class="line">		painter.setPen(pen);</span><br><span class="line">		painter.setBrush(colorHandle);</span><br><span class="line"></span><br><span class="line">		int w &#x3D; 20;</span><br><span class="line">		int h &#x3D; 10;</span><br><span class="line">		QRect rectHandle(position, vcenter-h&#x2F;2, w, h);</span><br><span class="line">		painter.drawRoundedRect (rectHandle, 4,4);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void	AfSeekBar::enterEvent ( QEvent * event )</span><br><span class="line">&#123;</span><br><span class="line"> 	qDebug() &lt;&lt; &quot;focus in!&quot;;</span><br><span class="line"></span><br><span class="line">	m_focused &#x3D; true;</span><br><span class="line">	update();</span><br><span class="line">	emit focused(true);</span><br><span class="line">	QWidget::enterEvent(event);</span><br><span class="line">&#125;</span><br><span class="line">void	AfSeekBar::leaveEvent ( QEvent * event )</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;setCursor(Qt::PointingHandCursor);</span><br><span class="line">	m_focused &#x3D; false;</span><br><span class="line">	qDebug() &lt;&lt; &quot;focus out!&quot;;</span><br><span class="line">	update();</span><br><span class="line">	emit focused(false);</span><br><span class="line"></span><br><span class="line">	QWidget::leaveEvent(event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void	AfSeekBar::mouseMoveEvent ( QMouseEvent * event )</span><br><span class="line">&#123;</span><br><span class="line">	int progress &#x3D; position2progress(event-&gt;pos().x());</span><br><span class="line">	emit tracking(progress, event-&gt;pos());</span><br><span class="line"></span><br><span class="line">	QWidget::mouseMoveEvent(event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void	AfSeekBar::mousePressEvent ( QMouseEvent * event )</span><br><span class="line">&#123;</span><br><span class="line">	if(event-&gt;button() &#x3D;&#x3D; Qt::LeftButton) </span><br><span class="line">	&#123;</span><br><span class="line">		m_pressed &#x3D; true;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void	AfSeekBar::mouseReleaseEvent ( QMouseEvent * event )</span><br><span class="line">&#123;</span><br><span class="line">	if(m_pressed)</span><br><span class="line">	&#123;</span><br><span class="line">		m_pressed &#x3D; false;</span><br><span class="line">		m_progress &#x3D; position2progress(event-&gt;pos().x());</span><br><span class="line">		update();</span><br><span class="line">		emit clicked(m_progress);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; position -&gt; progress</span><br><span class="line">int AfSeekBar::position2progress(int position)</span><br><span class="line">&#123;</span><br><span class="line">	int width &#x3D; this-&gt;width()-20;</span><br><span class="line">	int xoff &#x3D; 10;</span><br><span class="line">	position -&#x3D; xoff;</span><br><span class="line">	if(position &lt; 0) position &#x3D; 0;</span><br><span class="line">	else if(position &gt; width) position &#x3D; width;</span><br><span class="line"></span><br><span class="line">	return position * m_range &#x2F; width;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int AfSeekBar::progress2position(int progress)</span><br><span class="line">&#123;</span><br><span class="line">	int width &#x3D; this-&gt;width()-20;</span><br><span class="line">	int xoff &#x3D; 10;</span><br><span class="line">	return xoff + width * progress &#x2F; m_range;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>test.h:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#ifndef TEST_H</span><br><span class="line">#define TEST_H</span><br><span class="line"></span><br><span class="line">#include &lt;QtGui&#x2F;QWidget&gt;</span><br><span class="line">#include &quot;ui_test.h&quot;</span><br><span class="line"></span><br><span class="line">#include &quot;AfOverlay.h&quot; &#x2F;&#x2F; 浮动提示窗</span><br><span class="line"></span><br><span class="line">class Test : public QWidget</span><br><span class="line">&#123;</span><br><span class="line">	Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">	Test(QWidget *parent &#x3D; 0, Qt::WFlags flags &#x3D; 0);</span><br><span class="line">	~Test();</span><br><span class="line"></span><br><span class="line">private slots:</span><br><span class="line">	int onSeekFocused(bool yes);</span><br><span class="line">	int onSeekClicked(int progress);</span><br><span class="line">	int onSeekTracking(int progress,  QPoint pos);</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	Ui::Test_Class ui;</span><br><span class="line">	AfOverlay* m_tooltip;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; TEST_H</span><br></pre></td></tr></table></figure>
+
+<p>test.c:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;test.h&quot;</span><br><span class="line"></span><br><span class="line">Test::Test(QWidget *parent, Qt::WFlags flags)</span><br><span class="line">	: QWidget(parent, flags)</span><br><span class="line">&#123;</span><br><span class="line">	ui.setupUi(this);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 初始化提示框</span><br><span class="line">	m_tooltip &#x3D; new AfOverlay(this);</span><br><span class="line">	m_tooltip-&gt;setFixedSize(60,20);</span><br><span class="line">	m_tooltip-&gt;hide();</span><br><span class="line"></span><br><span class="line">	connect(ui.m_seekBar, SIGNAL(focused(bool)), </span><br><span class="line">		this, SLOT(onSeekFocused(bool)));</span><br><span class="line">	connect(ui.m_seekBar, SIGNAL(clicked(int)),</span><br><span class="line">		this, SLOT(onSeekClicked(int)));</span><br><span class="line">	connect(ui.m_seekBar, SIGNAL(tracking(int, QPoint)),</span><br><span class="line">		this, SLOT(onSeekTracking(int, QPoint)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Test::~Test()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Test::onSeekFocused(bool yes)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F; 拖动条高亮时，显示提示窗</span><br><span class="line">	m_tooltip-&gt;setVisible(yes);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Test::onSeekClicked(int progress)</span><br><span class="line">&#123;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Test::onSeekTracking(int progress, QPoint pos)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F; 显示位置信息</span><br><span class="line">	char buf[64];</span><br><span class="line">	sprintf(buf, &quot;%d&quot;,progress);</span><br><span class="line">	m_tooltip-&gt;setText(buf);</span><br><span class="line"></span><br><span class="line">	pos.setY(-25);</span><br><span class="line">	pos.setX(pos.x()-30);</span><br><span class="line">	pos &#x3D; ui.m_seekBar-&gt;mapToGlobal(pos);</span><br><span class="line">	m_tooltip-&gt;move(pos);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main.c:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;test.h&quot;</span><br><span class="line">#include &lt;QtGui&#x2F;QApplication&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">	QApplication a(argc, argv);</span><br><span class="line">	Test w;</span><br><span class="line">	w.show();</span><br><span class="line">	return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实现情况：</strong></p>
+<p><img src="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/1.png" alt></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">浅谈数据结构排序算法中的冒泡算法</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.401Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          QT右键菜单实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QT多线程与进度条显示</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">浅谈BP神经网络的原理</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="QT鼠标事件与可拖动进度条" data-title="QT鼠标事件与可拖动进度条" data-url="http://yoursite.com/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/", 
+    sourceId: "QT鼠标事件与可拖动进度条",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.398Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">数据结构练习笔记</a>
-    </h1>
+  <div id="SOHUCS" sid="QT鼠标事件与可拖动进度条" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.394Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%BB%8B%E7%BB%8D/">数学建模介绍</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/">层次分析法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E5%88%B7%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.387Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E5%88%B7%E9%A2%98/">刷题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/C++%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.377Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/C++%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">C++个人学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">C++与数据结构知识点总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-13T09:55:32.644Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/">VS2013编译64位QT4.8.6源代码（超详细版）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-13T09:50:40.156Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -457,8 +433,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

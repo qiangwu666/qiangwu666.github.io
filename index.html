@@ -147,6 +147,242 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-QT右键菜单实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/">QT右键菜单实现</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2020-06-09T17:27:46.325Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给QListWidget添加右键支持，点右键时弹出快捷菜单。 （又称：上下文菜单） </p>
+<p>步骤： </p>
+<p>(1)设置菜单策略</p>
+<p>​        setContextMenuPolicy(Qt::CustomContextMenu);<br>(2) 关联信号customContextMenuRequested() </p>
+<p>​        在QWidget基类中有这个signal<br>(3) 事件处理(slot): 构造菜单、显示<br>(4) 菜单响应(action)</p>
+<p>菜单的构造：</p>
+<p>构造一个QMenu对象即可，<br>QMenu menu; </p>
+<p>menu.addAction(ui.actionAdd); </p>
+<p>menu.addAction(ui.actionRemove);</p>
+<p>菜单的显示：</p>
+<p>QPoint pt_global = ui.listWidget-&gt;mapToGlobal(pt) ; </p>
+<p>menu.exec(pt_global); </p>
+<p>要把这个QPoint转换到全局坐标（屏幕坐标）</p>
+<p>菜单的上下文：</p>
+<p>在构造快捷菜单时，应该根据鼠标点击的位置（上下文）来定制不同的菜单。<br>在本例中，如果鼠标点中了一个现有项，则显示“删除”菜单。如果鼠标点中的是空白，则没有“删除”菜单。</p>
+<p>test.h:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#ifndef TEST_H</span><br><span class="line">#define TEST_H</span><br><span class="line"></span><br><span class="line">#include &lt;QtGui&#x2F;QMainWindow&gt;</span><br><span class="line">#include &quot;ui_test.h&quot;</span><br><span class="line"></span><br><span class="line">class Test : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">	Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">	Test(QWidget *parent &#x3D; 0, Qt::WFlags flags &#x3D; 0);</span><br><span class="line">	~Test();</span><br><span class="line"></span><br><span class="line">private slots:</span><br><span class="line">	int OnListContextMenu(const QPoint&amp; pt);</span><br><span class="line"></span><br><span class="line">	int OnMenuAdd();</span><br><span class="line">	int OnMenuRemove();</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	Ui::TestClass ui;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; TEST_H</span><br></pre></td></tr></table></figure>
+
+<p>test.c:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;test.h&quot;</span><br><span class="line"></span><br><span class="line">Test::Test(QWidget *parent, Qt::WFlags flags)</span><br><span class="line">	: QMainWindow(parent, flags)</span><br><span class="line">&#123;</span><br><span class="line">	ui.setupUi(this);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 添加数据项</span><br><span class="line">	ui.listWidget-&gt;addItem(&quot;book&quot;);</span><br><span class="line">	ui.listWidget-&gt;addItem(&quot;heart&quot;);</span><br><span class="line">	ui.listWidget-&gt;addItem(&quot;location&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 右键菜单支持</span><br><span class="line">	ui.listWidget-&gt;setContextMenuPolicy(Qt::CustomContextMenu);</span><br><span class="line"></span><br><span class="line">	connect(ui.listWidget, SIGNAL(customContextMenuRequested(const QPoint&amp;)),</span><br><span class="line">		this, SLOT(OnListContextMenu(const QPoint&amp;)));</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 右键菜单的命令处理</span><br><span class="line">	connect(ui.actionAdd, SIGNAL(triggered()),</span><br><span class="line">		this, SLOT(OnMenuAdd()));</span><br><span class="line">	connect(ui.actionRemove, SIGNAL(triggered()),</span><br><span class="line">		this, SLOT(OnMenuRemove()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Test::~Test()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Test::OnListContextMenu(const QPoint&amp; pt)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F; 当前选中项</span><br><span class="line">	QListWidgetItem* selected &#x3D; ui.listWidget-&gt;itemAt(pt);</span><br><span class="line">	int row &#x3D; ui.listWidget-&gt;currentRow();</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 构造菜单及菜单项</span><br><span class="line">	QMenu menu;</span><br><span class="line">	menu.addAction(ui.actionAdd);</span><br><span class="line"></span><br><span class="line">	if( selected)</span><br><span class="line">	&#123;</span><br><span class="line">		menu.addAction(ui.actionRemove);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 显示菜单</span><br><span class="line">	menu.exec(ui.listWidget-&gt;mapToGlobal(pt));</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Test::OnMenuAdd()</span><br><span class="line">&#123;</span><br><span class="line">	QListWidgetItem* item &#x3D; new QListWidgetItem();</span><br><span class="line">	item-&gt;setText(&quot;New Item&quot;);</span><br><span class="line">	ui.listWidget-&gt;addItem(item);</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Test::OnMenuRemove()</span><br><span class="line">&#123;</span><br><span class="line">	int row &#x3D; ui.listWidget-&gt;currentRow();</span><br><span class="line">	QListWidgetItem* item &#x3D; ui.listWidget-&gt;takeItem(row);</span><br><span class="line">	if(item)</span><br><span class="line">	&#123;</span><br><span class="line">		delete item;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main.c:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;test.h&quot;</span><br><span class="line">#include &lt;QtGui&#x2F;QApplication&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">	QApplication a(argc, argv);</span><br><span class="line">	Test w;</span><br><span class="line">	w.show();</span><br><span class="line">	return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实现情况：</strong></p>
+<p><img src="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/1.png" alt></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-QT鼠标事件与可拖动进度条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/">QT鼠标事件与可拖动进度条</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/" class="archive-article-date">
+  	<time datetime="2020-06-09T13:28:50.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>鼠标事件</strong></p>
+<p>鼠标事件分为四种：</p>
+<p>AfSeekBar: 可拖动，可显示进度 </p>
+<p>鼠标事件分为四种：</p>
+<p> (1)按下Press</p>
+<p> (2)抬起Release</p>
+<p> (3)移动Move</p>
+<p> (4)双击Double Click</p>
+<p>鼠标事件继承于QWidget</p>
+<p>void mouseDoubleClickEvent ( QMouseEvent * event ) </p>
+<p>void mouseMoveEvent ( QMouseEvent * event ) </p>
+<p>void mousePressEvent ( QMouseEvent * event ) </p>
+<p>void mouseReleaseEvent ( QMouseEvent * event )<br>重写这四个函数，就能够让自定义控件支持鼠标操作。</p>
+        
+          <a class="article-more-a" href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-QT多线程与进度条显示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/">QT多线程与进度条显示</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/" class="archive-article-date">
+  	<time datetime="2020-06-09T09:09:08.429Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Qt里，线程<strong>相关的类</strong>有：</p>
+<p>QThread 线程 </p>
+<p>QMutex  互斥锁</p>
+<p>QMutex  互斥锁</p>
+<p>QSemaphore 信号量</p>
+<p><strong>创建线程</strong>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> :</span> <span class="keyword">public</span> QThread</span><br><span class="line">&#123; </span><br><span class="line">	Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	MyThread(QObject *parent);</span><br><span class="line">    ~MyThread(); <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;   <span class="comment">// 线程的入口函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-刷题笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -640,211 +876,9 @@
 
 
   
-    <article id="post-浅谈数据结构排序算法中的冒泡算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">浅谈数据结构排序算法中的冒泡算法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而交换类排序包括：冒泡排序和快速排序。</p>
-<p>其中：冒泡排序（稳定的排序）</p>
-<p><font color="red">注：下列改进的冒泡排序是从小到大排序</font></p>
-        
-          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈BP神经网络的原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">浅谈BP神经网络的原理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.401Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>神经网络的工作状态分为<strong>学习</strong>和<strong>工作</strong>两种状态</p>
-<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学习</strong>：利用学习算法来调整神经元间的连接权重，使得网络输出更符合实际</p>
-<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作</strong>：神经元间的连接权值不变，可以作为分类器或者预测数据之用。</p>
-<p>采用BP学习算法的前馈神经网络称为BP神经网络。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BP算法基本原理：利用输出后的误差来估计输出层的直接前导层的误差，再用这个误差估计更前一层的误差，如此一层一层的反传下去，就获得了所有其他各层的误差估计。</p>
-<p><strong><font color="red">特点：信号的正向传播&amp;误差的反向传播</font></strong></p>
-        
-          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据结构练习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">数据结构练习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.398Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面是我个人做的一些比较经典的数据结构题目，内含代码解析</p>
-        
-          <a class="article-more-a" href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
