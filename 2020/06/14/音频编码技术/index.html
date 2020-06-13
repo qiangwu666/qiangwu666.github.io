@@ -6,23 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>音频基础知识 | 吴健强的个人博客网站</title>
+  <title>音频编码技术 | 吴健强的个人博客网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="音频原始数据格式PCM：纯粹的音频数据，没有任何格式 WAV：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据 注：WAV就是在PCM的基础上套了一个“头” 量化的基本概念采样大小：应该采样用多少bit存放，常用的是16bit 采样率：比较常见的采样频率：8k、16k、32k、44.1k、48k 注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;音频压缩技术是在保证信号在听觉方面不产生失真的前提下，对音频数据信号进行尽可能大的压缩。 音频压缩分为： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.有损压缩（消除冗余信息。如：人的听觉范围是20HZ~2WHZ，因此可以剔除20HZ以下，2WHZ以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="音频基础知识">
-<meta property="og:url" content="http://yoursite.com/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:title" content="音频编码技术">
+<meta property="og:url" content="http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
-<meta property="og:description" content="音频原始数据格式PCM：纯粹的音频数据，没有任何格式 WAV：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据 注：WAV就是在PCM的基础上套了一个“头” 量化的基本概念采样大小：应该采样用多少bit存放，常用的是16bit 采样率：比较常见的采样频率：8k、16k、32k、44.1k、48k 注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;音频压缩技术是在保证信号在听觉方面不产生失真的前提下，对音频数据信号进行尽可能大的压缩。 音频压缩分为： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.有损压缩（消除冗余信息。如：人的听觉范围是20HZ~2WHZ，因此可以剔除20HZ以下，2WHZ以">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1.bmp">
-<meta property="og:image" content="http://yoursite.com/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2.bmp">
-<meta property="article:published_time" content="2020-06-13T09:04:05.862Z">
-<meta property="article:modified_time" content="2020-06-13T18:34:15.800Z">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/1.bmp">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/2.bmp">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/3.bmp">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/4.bmp">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/5.bmp">
+<meta property="article:published_time" content="2020-06-13T19:21:11.731Z">
+<meta property="article:modified_time" content="2020-06-13T20:06:26.200Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1.bmp">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/1.bmp">
   
     <link rel="alternative" href="/atom.xml" title="吴健强的个人博客网站" type="application/atom+xml">
   
@@ -150,41 +153,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-音频基础知识" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-音频编码技术" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      音频基础知识
+      音频编码技术
     </h1>
   
 
         
-        <a href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-06-13T09:04:05.862Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+        <a href="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" class="archive-article-date">
+  	<time datetime="2020-06-13T19:21:11.731Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="音频原始数据格式"><a href="#音频原始数据格式" class="headerlink" title="音频原始数据格式"></a><center>音频原始数据格式</center></h1><p><strong>PCM</strong>：纯粹的音频数据，没有任何格式</p>
-<p><strong>WAV</strong>：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据</p>
-<p><font color="red">注：WAV就是在PCM的基础上套了一个“头”</font></p>
-<h1 id="量化的基本概念"><a href="#量化的基本概念" class="headerlink" title="量化的基本概念"></a><center>量化的基本概念</center></h1><p><strong>采样大小</strong>：应该采样用多少bit存放，常用的是16bit</p>
-<p><strong>采样率</strong>：比较常见的采样频率：8k、16k、32k、44.1k、48k</p>
-<p>注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一些敏感的信息就会被忽略掉，通常打电话都是8k的采样率（有一定的失真）</p>
-<p><strong>声道数</strong>：单声道、双声道、多声道（立体声）</p>
-<p><font color="red">注：不同声道的声音可以相同，也可以不同。</font></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频压缩技术是在保证信号在听觉方面不产生失真的前提下，对音频数据信号进行尽可能大的压缩。</p>
+<p><strong>音频压缩分为：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.有损压缩（消除冗余信息。如：人的听觉范围是20HZ~2WHZ，因此可以剔除20HZ以下，2WHZ以上的信息）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.无损压缩</p>
+<h2 id="有损压缩："><a href="#有损压缩：" class="headerlink" title="有损压缩："></a><strong>有损压缩：</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频冗余信息：包括人耳听觉范围外的音频信号以及被掩盖掉（遮蔽）的音频信号。其中，遮蔽包括频域遮蔽和时域遮蔽。时域转频域一般采用傅里叶变换和小波变换</p>
+<p><img src="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/1.bmp" alt></p>
+<p><img src="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/2.bmp" alt></p>
 <a id="more"></a>
 
-<h1 id="码率计算"><a href="#码率计算" class="headerlink" title="码率计算"></a><center>码率计算</center></h1><p><strong>一个PCM音频流</strong>的<strong>码率</strong>等于：采样率X采样大小X声道数</p>
-<p>例如：采样率为44.1KHz，采样大小为16bit，双声道的PCM编码为WAV文件，则它的码率为：44.1KHzX16X2=1411.2Kb/s</p>
-<h1 id="WAV头格式"><a href="#WAV头格式" class="headerlink" title="WAV头格式"></a><center>WAV头格式</center></h1><p><img src="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1.bmp" alt></p>
-<p><font color="red">注：紫色部分为RFF字符串，内含数据块大小与格式，其中格式为fmt或data。若为fmt，则后面的数据为解释fmt的信息：声道数、采样率、块的按照几个字节对齐的（BlockAlign，其数值一般为偶数）、采样率的字节数（ByteRate：每个采样的大小除以8）、采样大小等信息；若为data，则为数据部分。</font></p>
-<p><img src="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2.bmp" alt></p>
+<h2 id="无损压缩"><a href="#无损压缩" class="headerlink" title="无损压缩"></a><strong>无损压缩</strong></h2><p><strong>编码：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.哈夫曼编码（根据出现的频率进行编码）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.算术编码</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.香农编码</p>
+<p><img src="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/3.bmp" alt></p>
+<h2 id="常见的编码器"><a href="#常见的编码器" class="headerlink" title="常见的编码器"></a>常见的编码器</h2><p>常见的音频编码器包括OPUS（较新的编码器）、AAC、Ogg（收费）、Speex（包括回音消除功能）、iLBC、AMR、G.711等</p>
+<p>注：OPUS存在延迟小，压缩率高的特点，现在广泛运用于实时通信的相关应用（WebRTC默认使用OPUS），如：音视频会议、在线教育；</p>
+<p>AAC目前应用最广泛的一款编码器（用于取代MP3的），如：安卓系统、IOS、嵌入式系统都包含了硬件的AAC编解码器，FFmpeg中有很多AAC的软件编解码器；</p>
+<p>固定电话一般用的是G.711系列（特点：属于窄带音频，编码后数据非常小，适合于在非常窄的网络上进行传输，但是声音损耗非常严重）</p>
+<p>OPUS效果要好于AAC，因此今后可能会被取代，我网上看到评测结果：OPUS&gt;AAC&gt;Ogg</p>
+<p><img src="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/4.bmp" alt></p>
+<p>从上图可以看出OPUS的优势</p>
+<p><img src="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/5.bmp" alt></p>
+<p>从上图可以看出AAC延迟较高，而OPUS适用于低延时场景（实时通信场景）</p>
 
       
 
@@ -269,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,18 +294,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          音频编码技术
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/12/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">msys2+MinGW编译ffmpeg的具体步骤</div>
+    <a href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">音频基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -322,7 +324,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="音频基础知识" data-title="音频基础知识" data-url="http://yoursite.com/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"></div>
+	<div class="ds-thread" data-thread-key="音频编码技术" data-title="音频编码技术" data-url="http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -345,8 +347,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/", 
-    sourceId: "音频基础知识",
+    url: "http://yoursite.com/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/", 
+    sourceId: "音频编码技术",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -355,7 +357,7 @@
   
 
   
-  <div id="SOHUCS" sid="音频基础知识" ></div> 
+  <div id="SOHUCS" sid="音频编码技术" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
