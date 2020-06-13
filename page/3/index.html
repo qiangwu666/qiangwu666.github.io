@@ -147,6 +147,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-刷题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/%E5%88%B7%E9%A2%98/">刷题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/%E5%88%B7%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-05-13T10:37:32.387Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">5</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span> &#125;;</span><br><span class="line">	<span class="keyword">int</span> *ptr = (<span class="keyword">int</span> *)(&amp;a + <span class="number">1</span>);<span class="comment">//可以写成int *ptr =  *(&amp;a + 1);但是不规范</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d,%d"</span>,*(a+<span class="number">1</span>),*(ptr<span class="number">-1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：2,5</p>
+<p><strong>&amp;a+1不是首地址+1，系统会认为加了一个整个a数组，偏移了整个数组a的大小</strong>（也就是5个int的大小）。所以int *ptr=(int *)(&amp;a+1);其实ptr实际是&amp;(a[5]),也就是a+5</p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20170621/4988473_1498009999095_77189BC6A8A3AAAD72C6747E071AF510" alt="img"></p>
+<p><img src="/2020/05/13/%E5%88%B7%E9%A2%98/C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200310223831303.png" alt="image-20200310223831303"></p>
+<p>注意看第一张图的从左到右</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/%E5%88%B7%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C++个人学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
