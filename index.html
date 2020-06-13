@@ -147,6 +147,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-音频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">音频基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2020-06-13T09:04:05.862Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="音频原始数据格式"><a href="#音频原始数据格式" class="headerlink" title="音频原始数据格式"></a><center>音频原始数据格式</center></h1><p><strong>PCM</strong>：纯粹的音频数据，没有任何格式</p>
+<p><strong>WAV</strong>：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据</p>
+<p><font color="red">注：WAV就是在PCM的基础上套了一个“头”</font></p>
+<h1 id="量化的基本概念"><a href="#量化的基本概念" class="headerlink" title="量化的基本概念"></a><center>量化的基本概念</center></h1><p><strong>采样大小</strong>：应该采样用多少bit存放，常用的是16bit</p>
+<p><strong>采样率</strong>：比较常见的采样频率：8k、16k、32k、44.1k、48k</p>
+<p>注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一些敏感的信息就会被忽略掉，通常打电话都是8k的采样率（有一定的失真）</p>
+<p><strong>声道数</strong>：单声道、双声道、多声道（立体声）</p>
+<p><font color="red">注：不同声道的声音可以相同，也可以不同。</font></p>
+        
+          <a class="article-more-a" href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-msys2+MinGW编译ffmpeg的具体步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -639,6 +711,75 @@
 
 
   
+    <article id="post-VS2013编译64位QT4.8.6源代码（超详细版）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/">VS2013编译64位QT4.8.6源代码（超详细版）</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-05-19T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网上对于Visual Studio 2013版本编译64位的QT4版本的资料相对较少，因此本人在编译的过程也走了一些弯路，现趁着空闲时间来详细的讲讲编译的步骤。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，<strong>下载Visual Studio 2013版本并进行安装</strong>，推荐微信公众号关注：软件安装管家。这里面有许多软件的各个版本的破解版下载链接和教程，免费的！！！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接下来，<strong>下载QT4</strong>，这个可以直接搜索官网进行下载，百度搜索QT4下载就能找到。具体哪个版本可随意，只要是QT4的就行，本文就用QT4.8.6版本进行演示。</p>
+<p>下载链接：<a href="http://download.qt.io/archive/qt/4.8/4.8.6/qt-everywhere-opensource-src-4.8.6.zip" target="_blank" rel="noopener">http://download.qt.io/archive/qt/4.8/4.8.6/qt-everywhere-opensource-src-4.8.6.zip</a></p>
+<p><font color="red">注意：下载的要是源代码，不要下载成已经编译好的软件。</font></p>
+        
+          <a class="article-more-a" href="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-浅谈数据结构排序算法中的直接插入排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -682,150 +823,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈数据结构排序算法中的折半插入排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的折半插入排序</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.410Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
-<p>其中：折半插入排序（稳定的排序）</p>
-<p>原理步骤：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1）首先，利用<font color="red">折半查找法</font>确定插入的正确位置；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2）其次，再一次性对元素进行移动；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3）最后，执行插入指令</p>
-<p>先讲讲折半查找法：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;折半查找也叫二分查找，该方法要求必须是线性存储结构。其原理就是每次与当前有序序列中间下标的数组进行比较，如果此时要插入的值比该A[mid]大，那么我就进入这个有序序列的右半部分继续进行查找，否则就进入左半部分继续查找。直到找到合适位置（low=high时）。</p>
-<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
-<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
-        
-          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈数据结构排序算法中的快速排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的快速排序</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-13T10:37:32.406Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而交换类排序包括：冒泡排序和快速排序。</p>
-<p>其中：快速排序（不稳定的排序）</p>
-<p>特点：序列越无序，效率越高，快速排序是基于原问题分解成多个子问题，再递归地求解各个子问题。</p>
-<p>原理：每次选任一元素作为枢轴（一般选第一个元素），将比枢轴小的元素都放到枢轴前面，比枢轴大的元素都移到枢轴后面。（即类比于：每次选一个标兵，比该标兵矮的同学站左边，比标兵高的同学站右边）</p>
-<p><font color="red">注：下列两种方法的排序都是从小到大排序</font></p>
-<p>方法一：采用递归（较为容易理解）</p>
-        
-          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">展开全文 >></a>
         </p>
       
 

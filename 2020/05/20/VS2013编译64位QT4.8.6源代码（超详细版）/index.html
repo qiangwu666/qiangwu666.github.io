@@ -11,28 +11,28 @@
   <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;网上对于Visual Studio 2013版本编译64位的QT4版本的资料相对较少，因此本人在编译的过程也走了一些弯路，现趁着空闲时间来详细的讲讲编译的步骤。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先，下载Visual Studio 2013">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS2013编译64位QT4.8.6源代码（超详细版）">
-<meta property="og:url" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;网上对于Visual Studio 2013版本编译64位的QT4版本的资料相对较少，因此本人在编译的过程也走了一些弯路，现趁着空闲时间来详细的讲讲编译的步骤。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先，下载Visual Studio 2013">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/2.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/3.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/4.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/5.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/6.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/7.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/8.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/9.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/10.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/11.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/12.png">
-<meta property="article:published_time" content="2020-05-13T09:55:32.644Z">
-<meta property="article:modified_time" content="2020-05-14T11:36:17.275Z">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/6.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/7.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/8.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/9.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/10.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/11.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/12.png">
+<meta property="article:published_time" content="2020-05-19T18:55:35.000Z">
+<meta property="article:modified_time" content="2020-06-13T18:09:51.327Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="吴健强的个人博客网站" type="application/atom+xml">
   
@@ -172,8 +172,8 @@
   
 
         
-        <a href="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-13T09:55:32.644Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+        <a href="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-05-19T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
 </a>
         
       </header>
@@ -187,7 +187,7 @@
 <p><font color="red">注意：下载的要是源代码，不要下载成已经编译好的软件。</font></p>
 <a id="more"></a>
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg" alt></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/1.jpg" alt></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;然后，还需要下载一个插件：QT VS Tools，这个插件的作用是把QT嵌入到Visual Studio中，VS2013对应的插件版本是<strong>qt-vs-tools-msvc2013-2.1.1</strong>。下载完后先别急着安装。</p>
 <p>下载链接：<a href="https://download.csdn.net/download/u014615957/9991460" target="_blank" rel="noopener">https://download.csdn.net/download/u014615957/9991460</a></p>
 <p><font color="red">以下就是<strong>重点</strong>了！！！我们开始对QT源代码进行编译</font></p>
@@ -255,34 +255,34 @@
 
 <p><strong>第二步：用VS编译64位的QT4源代码。</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在开始菜单点击该文件：</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/2.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/2.png" alt></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点击： VS2013 x64 本机工具命令提示</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/3.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/3.png" alt></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入：configure -opensource -nomake demos -nomake examples -platform win32-msvc2013</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;等待执行完成后，根据提示输入：nmake</p>
 <p>之后去做其他事情吧，这个需要大概三四个小时左右</p>
 <p><strong>第三步：安装插件qt-vs-tools-msvc2013-2.1.1</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;直接安装（前提是VS2013已经安装完了并且QT也编译完了），安装过程很简单，无脑下一步就行。</p>
 <p>1.安装完成后打开VS2013，可以看到菜单栏上有该插件。</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/4.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/4.png" alt></p>
 <p>2.点击Qt Options</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/5.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/5.png" alt></p>
 <p>3.将QT代码加入</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/6.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/6.png" alt></p>
 <p>最后，我们用代码来测试一下是否ok。</p>
 <p>某位大佬的QT学习代码链接：<a href="https://share.weiyun.com/8bcbb391c9c31f7dd52678583e8e9e08" target="_blank" rel="noopener">https://share.weiyun.com/8bcbb391c9c31f7dd52678583e8e9e08</a></p>
 <p>下载完，解压文件后，随便打开一个工程</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/7.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/7.png" alt></p>
 <p>点击确定，不用理会</p>
 <p>此时，如果直接生成或编译则会报错，如下图所示：</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/8.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/8.png" alt></p>
 <p>正常操作是先点击该工程下任意.c文件</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/9.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/9.png" alt></p>
 <p>然后点击Convert Project to Qt VS Tools Project进行工程转换</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/10.png" alt></p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/11.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/10.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/11.png" alt></p>
 <p>最后Ctal+F5运行程序</p>
-<p><img src="/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/12.png" alt></p>
+<p><img src="/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/12.png" alt></p>
 
       
 
@@ -367,7 +367,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -381,18 +381,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/13/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          C++与数据结构知识点总结
+          QT事件处理与中文显示
         
       </div>
     </a>
   
   
-    <a href="/2020/05/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2020/05/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈数据结构排序算法中的直接插入排序</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -420,7 +420,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="VS2013编译64位QT4.8.6源代码（超详细版）" data-title="VS2013编译64位QT4.8.6源代码（超详细版）" data-url="http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/"></div>
+	<div class="ds-thread" data-thread-key="VS2013编译64位QT4.8.6源代码（超详细版）" data-title="VS2013编译64位QT4.8.6源代码（超详细版）" data-url="http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -443,7 +443,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2020/05/13/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/", 
+    url: "http://yoursite.com/2020/05/20/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/", 
     sourceId: "VS2013编译64位QT4.8.6源代码（超详细版）",
     productKey: "true",
     target: "cloud-tie-wrapper"
