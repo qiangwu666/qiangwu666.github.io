@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/6 | 吴健强的个人博客网站</title>
+  <title>QT事件处理与中文显示 | 吴健强的个人博客网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机知识分享与学习网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴健强的个人博客网站">
-<meta property="og:url" content="http://yoursite.com/archives/2020/06/index.html">
+  <meta name="description" content="事件处理：当事件发生时，程序做出响应 示例：点击“显示”按钮时，文本框显示对应内容 首先采用QT设计师添加控件文本框和按钮">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT事件处理与中文显示">
+<meta property="og:url" content="http://yoursite.com/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
-<meta property="og:description" content="计算机知识分享与学习网站">
+<meta property="og:description" content="事件处理：当事件发生时，程序做出响应 示例：点击“显示”按钮时，文本框显示对应内容 首先采用QT设计师添加控件文本框和按钮">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/3.png">
+<meta property="article:published_time" content="2020-05-15T02:29:38.000Z">
+<meta property="article:modified_time" content="2020-06-14T21:40:07.630Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/1.png">
   
     <link rel="alternative" href="/atom.xml" title="吴健强的个人博客网站" type="application/atom+xml">
   
@@ -145,130 +151,242 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-QT事件处理与中文显示" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      QT事件处理与中文显示
+    </h1>
+  
+
+        
+        <a href="/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/" class="archive-article-date">
+  	<time datetime="2020-05-15T02:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>事件处理：当事件发生时，程序做出响应</p>
+<p>示例：点击“显示”按钮时，文本框显示对应内容</p>
+<p>首先采用QT设计师添加控件文本框和按钮</p>
+<a id="more"></a>
+
+<p>test.h文件内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#ifndef TEST_H</span><br><span class="line">#define TEST_H</span><br><span class="line"></span><br><span class="line">#include &lt;QtGui&#x2F;QMainWindow&gt;</span><br><span class="line">#include &quot;ui_test.h&quot;</span><br><span class="line"></span><br><span class="line">class Test : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">	Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">	Test(QWidget *parent &#x3D; 0, Qt::WFlags flags &#x3D; 0);</span><br><span class="line">	~Test();</span><br><span class="line">private slots:</span><br><span class="line">	int OnShowClicked(bool checked);</span><br><span class="line">private:</span><br><span class="line">	Ui::Test ui;</span><br><span class="line">&#125;;</span><br><span class="line">#endif &#x2F;&#x2F; TEST_H</span><br></pre></td></tr></table></figure>
+
+
+
+<p>test.c文件内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;test.h&quot;</span><br><span class="line"></span><br><span class="line">Test::Test(QWidget *parent, Qt::WFlags flags)</span><br><span class="line">	: QMainWindow(parent, flags)</span><br><span class="line">&#123;</span><br><span class="line">	ui.setupUi(this);</span><br><span class="line">	connect(</span><br><span class="line">		ui.button,    &#x2F;&#x2F; 显示按钮, 必须是一个QObject*类型</span><br><span class="line">		SIGNAL (  clicked(bool)  ),   &#x2F;&#x2F; 显示按钮发出的信号</span><br><span class="line">		this, &#x2F;&#x2F; 对象b</span><br><span class="line">		SLOT (  OnShowClicked(bool)  ) &#x2F;&#x2F; b的槽</span><br><span class="line">		);&#x2F;&#x2F;将按钮连接到对象b的槽</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Test::~Test()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Test::OnShowClicked(bool checked)</span><br><span class="line">&#123;</span><br><span class="line">	ui.plainTextEdit-&gt;setPlainText(&quot;Hello QT！！！&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>main文件内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;test.h&quot;</span><br><span class="line">#include &lt;QtGui&#x2F;QApplication&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">	QApplication a(argc, argv);</span><br><span class="line">	Test w;</span><br><span class="line">	w.show();</span><br><span class="line">	return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/1.png" alt></p>
+<p>如果改为显示中文信息，例如：你好 QT!!!</p>
+<p>此时显示的内容将会乱码</p>
+<p><img src="/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/2.png" alt></p>
+<p>为了正常显示，要添加一个gkb.h文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#ifndef _QT_GBK_H</span><br><span class="line">#define _QT_GBK_H</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#include &lt;QString&gt;</span><br><span class="line">#include &lt;QTextCodec&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using std::string;</span><br><span class="line"></span><br><span class="line">class GBK</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	&#x2F;&#x2F; QString(Unicode) -&gt; std::string (GBK)</span><br><span class="line">	static string FromUnicode(const QString&amp; qstr)</span><br><span class="line">	&#123;</span><br><span class="line">		QTextCodec* pCodec &#x3D; QTextCodec::codecForName(&quot;gb2312&quot;);</span><br><span class="line">		if(!pCodec) return &quot;&quot;;	</span><br><span class="line">		&#x2F;* 注： 如果pCodec为NULL, 则说明你的Qt安装位置不是默认位置， *&#x2F;</span><br><span class="line">		</span><br><span class="line">		QByteArray arr &#x3D; pCodec-&gt;fromUnicode(qstr);</span><br><span class="line">		string cstr &#x3D; arr.data();</span><br><span class="line">		return cstr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; std::string (GBK) -&gt; QString(Unicode)</span><br><span class="line">	static QString ToUnicode(const string&amp; cstr)</span><br><span class="line">	&#123;</span><br><span class="line">		QTextCodec* pCodec &#x3D; QTextCodec::codecForName(&quot;gb2312&quot;);</span><br><span class="line">		if(!pCodec) return &quot;&quot;;</span><br><span class="line">		&#x2F;* 注： 如果pCodec为NULL, 则说明你的Qt安装位置不是默认位置， *&#x2F;</span><br><span class="line"></span><br><span class="line">		QString qstr &#x3D; pCodec-&gt;toUnicode(cstr.c_str(), cstr.length());</span><br><span class="line">		return qstr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;* 取两个较短的函数名 : w: wide-char  a: ansi </span><br><span class="line">	   大家可以用这两个函数</span><br><span class="line">	*&#x2F;</span><br><span class="line">	&#x2F;&#x2F; QString(Unicode) -&gt; std::string (GBK)</span><br><span class="line">	static string w2a(const QString&amp; qstr)</span><br><span class="line">	&#123;</span><br><span class="line">		return FromUnicode(qstr);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; std::string (GBK) -&gt; QString(Unicode)</span><br><span class="line">	static QString a2w(const string&amp; cstr)</span><br><span class="line">	&#123;</span><br><span class="line">		return ToUnicode(cstr);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<p>并将：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ui.plainTextEdit-&gt;setPlainText(&quot;你好 QT！！！&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>替换成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ui.plainTextEdit-&gt;setPlainText(GBK::ToUnicode(&quot;你好 QT!!!&quot;));</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/3.png" alt></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/15/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-06-14T18:34:52.840Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/15/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">视频基础知识</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2020-06-13T01:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          QT多线程与进度条显示
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/14/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VS2013编译64位QT4.8.6源代码（超详细版）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/">H264视频编码</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="QT事件处理与中文显示" data-title="QT事件处理与中文显示" data-url="http://yoursite.com/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/", 
+    sourceId: "QT事件处理与中文显示",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-06-05T09:43:40.975Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">刷题笔记</a>
-    </h1>
+  <div id="SOHUCS" sid="QT事件处理与中文显示" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2020-06-02T01:13:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">音频编码技术</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -291,8 +409,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

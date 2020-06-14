@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/6 | 吴健强的个人博客网站</title>
+  <title>音频基础知识 | 吴健强的个人博客网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机知识分享与学习网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴健强的个人博客网站">
-<meta property="og:url" content="http://yoursite.com/archives/2020/06/index.html">
+  <meta name="description" content="音频原始数据格式PCM：纯粹的音频数据，没有任何格式 WAV：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据 注：WAV就是在PCM的基础上套了一个“头” 量化的基本概念采样大小：应该采样用多少bit存放，常用的是16bit 采样率：比较常见的采样频率：8k、16k、32k、44.1k、48k 注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="音频基础知识">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="吴健强的个人博客网站">
-<meta property="og:description" content="计算机知识分享与学习网站">
+<meta property="og:description" content="音频原始数据格式PCM：纯粹的音频数据，没有任何格式 WAV：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据 注：WAV就是在PCM的基础上套了一个“头” 量化的基本概念采样大小：应该采样用多少bit存放，常用的是16bit 采样率：比较常见的采样频率：8k、16k、32k、44.1k、48k 注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1.bmp">
+<meta property="og:image" content="http://yoursite.com/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2.bmp">
+<meta property="article:published_time" content="2020-05-27T18:15:35.000Z">
+<meta property="article:modified_time" content="2020-06-14T21:36:15.927Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1.bmp">
   
     <link rel="alternative" href="/atom.xml" title="吴健强的个人博客网站" type="application/atom+xml">
   
@@ -145,130 +150,245 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-音频基础知识" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      音频基础知识
+    </h1>
+  
+
+        
+        <a href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2020-05-27T18:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="音频原始数据格式"><a href="#音频原始数据格式" class="headerlink" title="音频原始数据格式"></a><center>音频原始数据格式</center></h1><p><strong>PCM</strong>：纯粹的音频数据，没有任何格式</p>
+<p><strong>WAV</strong>：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据</p>
+<p><font color="red">注：WAV就是在PCM的基础上套了一个“头”</font></p>
+<h1 id="量化的基本概念"><a href="#量化的基本概念" class="headerlink" title="量化的基本概念"></a><center>量化的基本概念</center></h1><p><strong>采样大小</strong>：应该采样用多少bit存放，常用的是16bit</p>
+<p><strong>采样率</strong>：比较常见的采样频率：8k、16k、32k、44.1k、48k</p>
+<p>注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一些敏感的信息就会被忽略掉，通常打电话都是8k的采样率（有一定的失真）</p>
+<p><strong>声道数</strong>：单声道、双声道、多声道（立体声）</p>
+<p><font color="red">注：不同声道的声音可以相同，也可以不同。</font></p>
+<a id="more"></a>
+
+<h1 id="音频重采样"><a href="#音频重采样" class="headerlink" title="音频重采样"></a><center>音频重采样</center></h1><p>音频重采样：将音频三元组（采样率、采样大小、通道数）的值转为另外一组值。如：将44100/16/2转为48000/16/2</p>
+<p><strong>为什么要重采样</strong>？</p>
+<p>答：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.从设备采集的音频数据与编码器要求的数据不一致</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.扬声器要求的音频数据与要播放的音频数据不一致</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.方便运算</p>
+<p><strong>如何知道是否要进行重采样</strong>？</p>
+<p>答：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.要了解音频设备的参数</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.查看ffmpeg源码</p>
+<p><strong>重采样的步骤</strong>：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.创建重采样上下文</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.设置相关的参数</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.初始化重采样</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.进行重采样</p>
+<p><strong>几个重要的API</strong></p>
+<p>1.swr_alloc_set_opts（功能：创建重采样上下文，并设置相关参数）</p>
+<p>2.swr_init（功能：初始化重采样）</p>
+<p>3.swr_convert（功能：具体对音频帧的转换）</p>
+<p>4.swr_free（功能：将上下文所占用的资源释放掉）</p>
+<h1 id="码率计算"><a href="#码率计算" class="headerlink" title="码率计算"></a><center>码率计算</center></h1><p><strong>一个PCM音频流</strong>的<strong>码率</strong>等于：采样率X采样大小X声道数</p>
+<p>例如：采样率为44.1KHz，采样大小为16bit，双声道的PCM编码为WAV文件，则它的码率为：44.1KHzX16X2=1411.2Kb/s</p>
+<h1 id="WAV头格式"><a href="#WAV头格式" class="headerlink" title="WAV头格式"></a><center>WAV头格式</center></h1><p><img src="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1.bmp" alt></p>
+<p><font color="red">注：紫色部分为RFF字符串，内含数据块大小与格式，其中格式为fmt或data。若为fmt，则后面的数据为解释fmt的信息：声道数、采样率、块的按照几个字节对齐的（BlockAlign，其数值一般为偶数）、采样率的字节数（ByteRate：每个采样的大小除以8）、采样大小等信息；若为data，则为数据部分。</font></p>
+<p><img src="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2.bmp" alt></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/15/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-06-14T18:34:52.840Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/15/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">视频基础知识</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2020-06-13T01:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          音频编码技术
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">毕设答辩问题总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/">H264视频编码</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="音频基础知识" data-title="音频基础知识" data-url="http://yoursite.com/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/", 
+    sourceId: "音频基础知识",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-06-05T09:43:40.975Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">刷题笔记</a>
-    </h1>
+  <div id="SOHUCS" sid="音频基础知识" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2020-06-02T01:13:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">音频编码技术</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -291,8 +411,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

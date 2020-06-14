@@ -147,32 +147,39 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-AAC编码器的介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-视频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/14/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/">AAC编码器的介绍</a>
+      <a class="article-title" href="/2020/06/15/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">视频基础知识</a>
     </h1>
   
 
         
-        <a href="/2020/06/14/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-06-13T20:11:42.920Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-14</time>
+        <a href="/2020/06/15/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2020-06-14T18:34:52.840Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="AAC介绍"><a href="#AAC介绍" class="headerlink" title="AAC介绍"></a>AAC介绍</h2><p>AAC（Advanced Audio Coding）由Fraunhofer IIS、杜比实验室、AT&amp;T、Sony等公司共同开发，目的是为了取代MP3格式。AAC相比MP3压缩率更高，保真性更好。</p>
-<p>AAC最开始是基于MPEG-2的音频编码技术，后面MPEG-4标准出现后，AAC重新集成了其特性，加入了SBR技术和PS技术。</p>
-<p>目前常用语的AAC规格有：AAC LC、AAC HE V1（相对用的比较少，因为基本上已经被V2期待了）、AAC HE V2</p>
-<p><img src="/2020/06/14/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/1.bmp" alt></p>
+        <h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a><center>分辨率</center></h1><p><strong>分辨率</strong>：X轴的像素个数乘以Y轴的像素个数</p>
+<p><strong>常见的宽高比</strong>：16:9/4:3，现在基本上都是16:9，不是这种两种的宽高比，则是非标准的，需要进行转换，否则会渲染时可能会出现问题</p>
+<p><strong>常见分辨率</strong>：360P/720P/1K/2K</p>
+<p><font color="red">注：上述这四种常见的分辨率都是16:9的，即：360P是640X360；720P是1280X720</font></p>
+<h1 id="帧率"><a href="#帧率" class="headerlink" title="帧率"></a><center>帧率</center></h1><p>帧率：每秒钟采集/播放图像的个数</p>
+<p>动画的帧率是25帧/s</p>
+<p>常见的帧率：15帧/s（一般用于实时通信，带宽较小），30帧/s，60帧/s（电影拍摄一般在60以上）</p>
+<h1 id="未编码视频的RGB码流"><a href="#未编码视频的RGB码流" class="headerlink" title="未编码视频的RGB码流"></a><center>未编码视频的RGB码流</center></h1><p>RGB码流=分辨率(宽x高)x3(Byte)x帧率</p>
+<p>例如：1280x720x3x25=69120000,，约为69M</p>
+<p><font color="red">注：上述的3(Byte)是RGB的意思</font></p>
+<p>YUV码流=分辨率(宽x高)x1.5(Byte)x帧率</p>
         
-          <a class="article-more-a" href="/2020/06/14/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/#more">more >></a>
+          <a class="article-more-a" href="/2020/06/15/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
         
       
 
@@ -185,7 +192,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/14/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/06/15/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
         </p>
       
 
@@ -215,35 +222,36 @@
 
 
   
-    <article id="post-音频编码技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-H264视频编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">音频编码技术</a>
+      <a class="article-title" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/">H264视频编码</a>
     </h1>
   
 
         
-        <a href="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2020-06-13T19:21:11.731Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-14</time>
+        <a href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/" class="archive-article-date">
+  	<time datetime="2020-06-13T01:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频压缩技术是在保证信号在听觉方面不产生失真的前提下，对音频数据信号进行尽可能大的压缩。</p>
-<p><strong>音频压缩分为：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.有损压缩（消除冗余信息。如：人的听觉范围是20HZ~2WHZ，因此可以剔除20HZ以下，2WHZ以上的信息）</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.无损压缩</p>
-<h2 id="有损压缩："><a href="#有损压缩：" class="headerlink" title="有损压缩："></a><strong>有损压缩：</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频冗余信息：包括人耳听觉范围外的音频信号以及被掩盖掉（遮蔽）的音频信号。其中，遮蔽包括频域遮蔽和时域遮蔽。时域转频域一般采用傅里叶变换和小波变换</p>
-<p><img src="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/1.bmp" alt></p>
-<p><img src="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/2.bmp" alt></p>
+        <p><strong>H264压缩比</strong></p>
+<p>条件：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.YUV格式为YUV420</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.分辨率为640x480</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.帧率为15</p>
+<p>建议码流为：500kpbs（经验估算的，码流参考值可看：<a href="https://docs.agora.io/cn）" target="_blank" rel="noopener">https://docs.agora.io/cn）</a></p>
+<p><strong>压缩比结果</strong>：约为百分之一</p>
+<p><img src="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/1.png" alt></p>
         
-          <a class="article-more-a" href="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/#more">more >></a>
+          <a class="article-more-a" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/#more">more >></a>
         
       
 
@@ -256,366 +264,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/14/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-音频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">音频基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-06-13T09:04:05.862Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="音频原始数据格式"><a href="#音频原始数据格式" class="headerlink" title="音频原始数据格式"></a><center>音频原始数据格式</center></h1><p><strong>PCM</strong>：纯粹的音频数据，没有任何格式</p>
-<p><strong>WAV</strong>：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据</p>
-<p><font color="red">注：WAV就是在PCM的基础上套了一个“头”</font></p>
-<h1 id="量化的基本概念"><a href="#量化的基本概念" class="headerlink" title="量化的基本概念"></a><center>量化的基本概念</center></h1><p><strong>采样大小</strong>：应该采样用多少bit存放，常用的是16bit</p>
-<p><strong>采样率</strong>：比较常见的采样频率：8k、16k、32k、44.1k、48k</p>
-<p>注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一些敏感的信息就会被忽略掉，通常打电话都是8k的采样率（有一定的失真）</p>
-<p><strong>声道数</strong>：单声道、双声道、多声道（立体声）</p>
-<p><font color="red">注：不同声道的声音可以相同，也可以不同。</font></p>
-        
-          <a class="article-more-a" href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/13/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-msys2+MinGW编译ffmpeg的具体步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/12/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/">msys2+MinGW编译ffmpeg的具体步骤</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/12/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
-  	<time datetime="2020-06-11T19:10:57.636Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用MinGW的前提是搭建完msys2的环境</p>
-<p>首先，搭建msys2环境</p>
-<p>msys2下载地址：<a href="https://www.msys2.org" target="_blank" rel="noopener">https://www.msys2.org</a></p>
-<p>点击下载</p>
-<p><img src="/2020/06/12/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/0.png" alt></p>
-<p>下载完成后安装只需要无脑下一步即可（我这边把msys2直接安装在C盘中，也可以安装在其他盘）</p>
-        
-          <a class="article-more-a" href="/2020/06/12/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/12/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-QT右键菜单实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/">QT右键菜单实现</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2020-06-09T17:27:46.325Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给QListWidget添加右键支持，点右键时弹出快捷菜单。 （又称：上下文菜单） </p>
-<p>步骤： </p>
-<p>(1)设置菜单策略</p>
-<p>​        setContextMenuPolicy(Qt::CustomContextMenu);<br>(2) 关联信号customContextMenuRequested() </p>
-<p>​        在QWidget基类中有这个signal<br>(3) 事件处理(slot): 构造菜单、显示<br>(4) 菜单响应(action)</p>
-        
-          <a class="article-more-a" href="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/10/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-QT鼠标事件与可拖动进度条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/">QT鼠标事件与可拖动进度条</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/" class="archive-article-date">
-  	<time datetime="2020-06-09T13:28:50.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>鼠标事件</strong></p>
-<p>鼠标事件分为四种：</p>
-<p>AfSeekBar: 可拖动，可显示进度 </p>
-<p>鼠标事件分为四种：</p>
-<p> (1)按下Press</p>
-<p> (2)抬起Release</p>
-<p> (3)移动Move</p>
-<p> (4)双击Double Click</p>
-<p>鼠标事件继承于QWidget</p>
-<p>void mouseDoubleClickEvent ( QMouseEvent * event ) </p>
-<p>void mouseMoveEvent ( QMouseEvent * event ) </p>
-<p>void mousePressEvent ( QMouseEvent * event ) </p>
-<p>void mouseReleaseEvent ( QMouseEvent * event )<br>重写这四个函数，就能够让自定义控件支持鼠标操作。</p>
-        
-          <a class="article-more-a" href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/09/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-QT多线程与进度条显示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/">QT多线程与进度条显示</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/" class="archive-article-date">
-  	<time datetime="2020-06-09T09:09:08.429Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Qt里，线程<strong>相关的类</strong>有：</p>
-<p>QThread 线程 </p>
-<p>QMutex  互斥锁</p>
-<p>QMutex  互斥锁</p>
-<p>QSemaphore 信号量</p>
-<p><strong>创建线程</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> :</span> <span class="keyword">public</span> QThread</span><br><span class="line">&#123; </span><br><span class="line">	Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	MyThread(QObject *parent);</span><br><span class="line">    ~MyThread(); <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;   <span class="comment">// 线程的入口函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/09/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/">展开全文 >></a>
         </p>
       
 
@@ -681,6 +330,149 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-音频编码技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">音频编码技术</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" class="archive-article-date">
+  	<time datetime="2020-06-02T01:13:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频压缩技术是在保证信号在听觉方面不产生失真的前提下，对音频数据信号进行尽可能大的压缩。</p>
+<p><strong>音频压缩分为：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.有损压缩（消除冗余信息。如：人的听觉范围是20HZ~2WHZ，因此可以剔除20HZ以下，2WHZ以上的信息）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.无损压缩</p>
+<h2 id="有损压缩："><a href="#有损压缩：" class="headerlink" title="有损压缩："></a><strong>有损压缩：</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频冗余信息：包括人耳听觉范围外的音频信号以及被掩盖掉（遮蔽）的音频信号。其中，遮蔽包括频域遮蔽和时域遮蔽。时域转频域一般采用傅里叶变换和小波变换</p>
+<p><img src="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/1.bmp" alt></p>
+<p><img src="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/2.bmp" alt></p>
+        
+          <a class="article-more-a" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-音频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">音频基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2020-05-27T18:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="音频原始数据格式"><a href="#音频原始数据格式" class="headerlink" title="音频原始数据格式"></a><center>音频原始数据格式</center></h1><p><strong>PCM</strong>：纯粹的音频数据，没有任何格式</p>
+<p><strong>WAV</strong>：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据</p>
+<p><font color="red">注：WAV就是在PCM的基础上套了一个“头”</font></p>
+<h1 id="量化的基本概念"><a href="#量化的基本概念" class="headerlink" title="量化的基本概念"></a><center>量化的基本概念</center></h1><p><strong>采样大小</strong>：应该采样用多少bit存放，常用的是16bit</p>
+<p><strong>采样率</strong>：比较常见的采样频率：8k、16k、32k、44.1k、48k</p>
+<p>注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一些敏感的信息就会被忽略掉，通常打电话都是8k的采样率（有一定的失真）</p>
+<p><strong>声道数</strong>：单声道、双声道、多声道（立体声）</p>
+<p><font color="red">注：不同声道的声音可以相同，也可以不同。</font></p>
+        
+          <a class="article-more-a" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
         </p>
       
 
@@ -783,31 +575,34 @@
 
 
   
-    <article id="post-QT事件处理与中文显示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-msys2+MinGW编译ffmpeg的具体步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/">QT事件处理与中文显示</a>
+      <a class="article-title" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/">msys2+MinGW编译ffmpeg的具体步骤</a>
     </h1>
   
 
         
-        <a href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/" class="archive-article-date">
-  	<time datetime="2020-05-20T09:48:19.807Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
+        <a href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
+  	<time datetime="2020-05-22T04:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>事件处理：当事件发生时，程序做出响应</p>
-<p>示例：点击“显示”按钮时，文本框显示对应内容</p>
-<p>首先采用QT设计师添加控件文本框和按钮</p>
+        <p>使用MinGW的前提是搭建完msys2的环境</p>
+<p>首先，搭建msys2环境</p>
+<p>msys2下载地址：<a href="https://www.msys2.org" target="_blank" rel="noopener">https://www.msys2.org</a></p>
+<p>点击下载</p>
+<p><img src="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/0.png" alt></p>
+<p>下载完成后安装只需要无脑下一步即可（我这边把msys2直接安装在C盘中，也可以安装在其他盘）</p>
         
-          <a class="article-more-a" href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/#more">more >></a>
         
       
 
@@ -820,7 +615,224 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-QT右键菜单实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/18/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/">QT右键菜单实现</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/18/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2020-05-17T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给QListWidget添加右键支持，点右键时弹出快捷菜单。 （又称：上下文菜单） </p>
+<p>步骤： </p>
+<p>(1)设置菜单策略</p>
+<p>​        setContextMenuPolicy(Qt::CustomContextMenu);<br>(2) 关联信号customContextMenuRequested() </p>
+<p>​        在QWidget基类中有这个signal<br>(3) 事件处理(slot): 构造菜单、显示<br>(4) 菜单响应(action)</p>
+        
+          <a class="article-more-a" href="/2020/05/18/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/18/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-QT鼠标事件与可拖动进度条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/17/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/">QT鼠标事件与可拖动进度条</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/17/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/" class="archive-article-date">
+  	<time datetime="2020-05-17T01:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>鼠标事件</strong></p>
+<p>鼠标事件分为四种：</p>
+<p>AfSeekBar: 可拖动，可显示进度 </p>
+<p>鼠标事件分为四种：</p>
+<p> (1)按下Press</p>
+<p> (2)抬起Release</p>
+<p> (3)移动Move</p>
+<p> (4)双击Double Click</p>
+<p>鼠标事件继承于QWidget</p>
+<p>void mouseDoubleClickEvent ( QMouseEvent * event ) </p>
+<p>void mouseMoveEvent ( QMouseEvent * event ) </p>
+<p>void mousePressEvent ( QMouseEvent * event ) </p>
+<p>void mouseReleaseEvent ( QMouseEvent * event )<br>重写这四个函数，就能够让自定义控件支持鼠标操作。</p>
+        
+          <a class="article-more-a" href="/2020/05/17/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/17/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-QT多线程与进度条显示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/">QT多线程与进度条显示</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/" class="archive-article-date">
+  	<time datetime="2020-05-15T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Qt里，线程<strong>相关的类</strong>有：</p>
+<p>QThread 线程 </p>
+<p>QMutex  互斥锁</p>
+<p>QMutex  互斥锁</p>
+<p>QSemaphore 信号量</p>
+<p><strong>创建线程</strong>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> :</span> <span class="keyword">public</span> QThread</span><br><span class="line">&#123; </span><br><span class="line">	Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	MyThread(QObject *parent);</span><br><span class="line">    ~MyThread(); <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;   <span class="comment">// 线程的入口函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/">展开全文 >></a>
         </p>
       
 
