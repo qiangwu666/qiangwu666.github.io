@@ -147,6 +147,651 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-QT工作学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/16/QT%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">QT工作学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/16/QT%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-08-16T15:37:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="QT工作学习笔记"><a href="#QT工作学习笔记" class="headerlink" title="QT工作学习笔记"></a>QT工作学习笔记</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu-&gt;exec(QCursor::pos());</span><br><span class="line">&#x2F;&#x2F;QCursor::pos()：获取鼠标绝对位置，在用户右键后在当前位置显示菜单选项</span><br></pre></td></tr></table></figure>
+
+<p>menu-&gt;exec()和menu-&gt;popup的区别：</p>
+<p><a href="https://www.cnblogs.com/qianguyihao/p/4133292.html" target="_blank" rel="noopener">https://www.cnblogs.com/qianguyihao/p/4133292.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QApplication::setOverrideCursor(Qt::WaitCursor);&#x2F;&#x2F;设置鼠标为等待光标</span><br></pre></td></tr></table></figure>
+
+<h2 id="Qt中foreach及QList的使用"><a href="#Qt中foreach及QList的使用" class="headerlink" title="Qt中foreach及QList的使用"></a>Qt中foreach及QList的使用</h2><p>QList是一个最常用的容器类，用它定义一个对象通常是<br>QList <int>list;<br>其中int代表给定的类型，也就是说现在定义了一个有符号整形的容器，让后给里面装值<br>list&lt;&lt;2&lt;&lt;3&lt;&lt;4&lt;&lt;6;<br>现在就可以使用foreach(int i,list)这样就可以遍历整个容器了</int></p>
+<p>它告诉QT不要定义moc关键字signals,slots和emit，因为这些名字可能将被用于第三方库，例如Boost。你只需简单的用QT宏将他们替换为 Q_SIGNALS, Q_SLOTS，和 Q_EMIT，就可以继续使用信号和槽了。</p>
+<p>QDateTime日期操作</p>
+<p>resizeColumnToContents</p>
+        
+          <a class="article-more-a" href="/2020/08/16/QT%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/16/QT%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-代码学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/25/%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">C++笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/25/%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-07-25T15:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="位域"><a href="#位域" class="headerlink" title="位域"></a>位域</h2><p>有些信息在存储时，并不需要占用一个完整的字节， 而只需占几个或一个二进制位。例如在存放一个开关量时，只有0和1 两种状态， 用一位二进位即可。为了节省存储空间，并使处理简便，Ｃ语言又提供了一种数据结构，称为“位域”或“位段”。所谓“位域”是把一个字节中的二进位划分为几个不同的区域， 并说明每个区域的位数。每个域有一个域名，允许在程序中按域名进行操作。 这样就可以把几个不同的对象用一个字节的二进制位域来表示。一、位域的定义和位域变量的说明位域定义与结构定义相仿，其形式为： </p>
+<p>struct 位域结构名<br>{ 位域列表 };<br>其中位域列表的形式为： 类型说明符 位域名：位域长度 </p>
+<p><a href="https://blog.csdn.net/lutherarcher/article/details/56310275" target="_blank" rel="noopener">https://blog.csdn.net/lutherarcher/article/details/56310275</a></p>
+<h2 id="do-while-0-的妙用"><a href="#do-while-0-的妙用" class="headerlink" title="do{}while(0)的妙用"></a>do{}while(0)的妙用</h2><p>在C++中，有三种类型的循环语句：for, while, 和do…while， 但是在一般应用中作循环时， 我们可能用for和while要多一些，do…while相对不受重视。<br>  但是，最近在读我们项目的代码时，却发现了do…while的一些十分聪明的用法，不是用来做循环，而是用作其他来提高代码的健壮性。</p>
+<p><strong>1. do…while(0)消除goto语句。</strong></p>
+<p>通常，如果在一个函数中开始要分配一些资源，然后在中途执行过程中如果遇到错误则退出函数</p>
+<p><strong>2 宏定义中的do…while(0)</strong></p>
+<p>例如：</p>
+        
+          <a class="article-more-a" href="/2020/07/25/%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/25/%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-H264视频编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/">H264视频编码</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/" class="archive-article-date">
+  	<time datetime="2020-06-13T01:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>H264压缩比</strong></p>
+<p>条件：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.YUV格式为YUV420</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.分辨率为640x480</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.帧率为15</p>
+<p>建议码流为：500kpbs（经验估算的，码流参考值可看：<a href="https://docs.agora.io/cn）" target="_blank" rel="noopener">https://docs.agora.io/cn）</a></p>
+<p><strong>压缩比结果</strong>：约为百分之一</p>
+<p><img src="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/1.png" alt></p>
+        
+          <a class="article-more-a" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Git学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/13/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Git学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/13/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-06-12T16:09:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id><a href="#" class="headerlink" title></a></h3><h2 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h2><h3 id="1-找到合适的创建位置"><a href="#1-找到合适的创建位置" class="headerlink" title="1.找到合适的创建位置"></a>1.找到合适的创建位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;创建目录</span><br><span class="line">mkdir test</span><br><span class="line">&#x2F;&#x2F;进入目录</span><br><span class="line">cd test</span><br><span class="line">&#x2F;&#x2F;显示一下当前目录有什么东西</span><br><span class="line">pwd</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-初始化一下目录（即：生成。git文件夹）"><a href="#2-初始化一下目录（即：生成。git文件夹）" class="headerlink" title="2.初始化一下目录（即：生成。git文件夹）"></a>2.初始化一下目录（即：生成。git文件夹）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init&#x2F;&#x2F;将该路径下的内容（test文件夹的内容）变成受到git管理的仓库</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置当前该仓库的用户和邮箱"><a href="#3-配置当前该仓库的用户和邮箱" class="headerlink" title="3.配置当前该仓库的用户和邮箱"></a>3.配置当前该仓库的用户和邮箱</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;wujianqaing&quot;</span><br><span class="line">git config --global user.email &quot;wujianqaing@wondershare.cn&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注：使用了–global表示本电脑所有仓库都用这个账号和密码，单独配的话空就去掉–global</p>
+        
+          <a class="article-more-a" href="/2020/06/13/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/13/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-视频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/11/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">视频基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/11/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2020-06-11T01:53:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a><center>分辨率</center></h1><p><strong>分辨率</strong>：X轴的像素个数乘以Y轴的像素个数</p>
+<p><strong>常见的宽高比</strong>：16:9/4:3，现在基本上都是16:9，不是这种两种的宽高比，则是非标准的，需要进行转换，否则会渲染时可能会出现问题</p>
+<p><strong>常见分辨率</strong>：360P/720P/1K/2K</p>
+<p><font color="red">注：上述这四种常见的分辨率都是16:9的，即：360P是640X360；720P是1280X720</font></p>
+<h1 id="帧率"><a href="#帧率" class="headerlink" title="帧率"></a><center>帧率</center></h1><p>帧率：每秒钟采集/播放图像的个数</p>
+<p>动画的帧率是25帧/s</p>
+<p>常见的帧率：15帧/s（一般用于实时通信，带宽较小），30帧/s，60帧/s（电影拍摄一般在60以上）</p>
+<h1 id="未编码视频的RGB码流"><a href="#未编码视频的RGB码流" class="headerlink" title="未编码视频的RGB码流"></a><center>未编码视频的RGB码流</center></h1><p>RGB码流=分辨率(宽x高)x3(Byte)x帧率</p>
+<p>例如：1280x720x3x25=69120000,，约为69M</p>
+<p><font color="red">注：上述的3(Byte)是RGB的意思</font></p>
+<p>YUV码流=分辨率(宽x高)x1.5(Byte)x帧率</p>
+        
+          <a class="article-more-a" href="/2020/06/11/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/11/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AAC编码器的介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/">AAC编码器的介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
+  	<time datetime="2020-06-10T03:25:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="AAC介绍"><a href="#AAC介绍" class="headerlink" title="AAC介绍"></a>AAC介绍</h2><p>AAC（Advanced Audio Coding）由Fraunhofer IIS、杜比实验室、AT&amp;T、Sony等公司共同开发，目的是为了取代MP3格式。AAC相比MP3压缩率更高，保真性更好。</p>
+<p>AAC最开始是基于MPEG-2的音频编码技术，后面MPEG-4标准出现后，AAC重新集成了其特性，加入了SBR技术和PS技术。</p>
+<p>目前常用语的AAC规格有：AAC LC、AAC HE V1（相对用的比较少，因为基本上已经被V2期待了）、AAC HE V2</p>
+<p><img src="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/1.bmp" alt></p>
+        
+          <a class="article-more-a" href="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-音频编码技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">音频编码技术</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" class="archive-article-date">
+  	<time datetime="2020-06-02T01:13:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频压缩技术是在保证信号在听觉方面不产生失真的前提下，对音频数据信号进行尽可能大的压缩。</p>
+<p><strong>音频压缩分为：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.有损压缩（消除冗余信息。如：人的听觉范围是20HZ~2WHZ，因此可以剔除20HZ以下，2WHZ以上的信息）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.无损压缩</p>
+<h2 id="有损压缩："><a href="#有损压缩：" class="headerlink" title="有损压缩："></a><strong>有损压缩：</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频冗余信息：包括人耳听觉范围外的音频信号以及被掩盖掉（遮蔽）的音频信号。其中，遮蔽包括频域遮蔽和时域遮蔽。时域转频域一般采用傅里叶变换和小波变换</p>
+<p><img src="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/1.bmp" alt></p>
+<p><img src="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/2.bmp" alt></p>
+        
+          <a class="article-more-a" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-音频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">音频基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2020-05-27T18:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="音频原始数据格式"><a href="#音频原始数据格式" class="headerlink" title="音频原始数据格式"></a><center>音频原始数据格式</center></h1><p><strong>PCM</strong>：纯粹的音频数据，没有任何格式</p>
+<p><strong>WAV</strong>：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据</p>
+<p><font color="red">注：WAV就是在PCM的基础上套了一个“头”</font></p>
+<h1 id="量化的基本概念"><a href="#量化的基本概念" class="headerlink" title="量化的基本概念"></a><center>量化的基本概念</center></h1><p><strong>采样大小</strong>：应该采样用多少bit存放，常用的是16bit</p>
+<p><strong>采样率</strong>：比较常见的采样频率：8k、16k、32k、44.1k、48k</p>
+<p>注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一些敏感的信息就会被忽略掉，通常打电话都是8k的采样率（有一定的失真）</p>
+<p><strong>声道数</strong>：单声道、双声道、多声道（立体声）</p>
+<p><font color="red">注：不同声道的声音可以相同，也可以不同。</font></p>
+        
+          <a class="article-more-a" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-msys2+MinGW编译ffmpeg的具体步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/">msys2+MinGW编译ffmpeg的具体步骤</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
+  	<time datetime="2020-05-22T04:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用MinGW的前提是搭建完msys2的环境</p>
+<p>首先，搭建msys2环境</p>
+<p>msys2下载地址：<a href="https://www.msys2.org" target="_blank" rel="noopener">https://www.msys2.org</a></p>
+<p>点击下载</p>
+<p><img src="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/0.png" alt></p>
+<p>下载完成后安装只需要无脑下一步即可（我这边把msys2直接安装在C盘中，也可以安装在其他盘）</p>
+        
+          <a class="article-more-a" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-QT右键菜单实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -160,7 +805,7 @@
 
         
         <a href="/2020/05/18/QT%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2020-05-17T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+  	<time datetime="2020-05-17T16:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
 </a>
         
       </header>
@@ -216,641 +861,9 @@
 
 
   
-    <article id="post-QT鼠标事件与可拖动进度条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/17/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/">QT鼠标事件与可拖动进度条</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/17/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/" class="archive-article-date">
-  	<time datetime="2020-05-17T01:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>鼠标事件</strong></p>
-<p>鼠标事件分为四种：</p>
-<p>AfSeekBar: 可拖动，可显示进度 </p>
-<p>鼠标事件分为四种：</p>
-<p> (1)按下Press</p>
-<p> (2)抬起Release</p>
-<p> (3)移动Move</p>
-<p> (4)双击Double Click</p>
-<p>鼠标事件继承于QWidget</p>
-<p>void mouseDoubleClickEvent ( QMouseEvent * event ) </p>
-<p>void mouseMoveEvent ( QMouseEvent * event ) </p>
-<p>void mousePressEvent ( QMouseEvent * event ) </p>
-<p>void mouseReleaseEvent ( QMouseEvent * event )<br>重写这四个函数，就能够让自定义控件支持鼠标操作。</p>
-        
-          <a class="article-more-a" href="/2020/05/17/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/17/QT%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8F%AF%E6%8B%96%E5%8A%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-QT多线程与进度条显示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/">QT多线程与进度条显示</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/" class="archive-article-date">
-  	<time datetime="2020-05-15T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Qt里，线程<strong>相关的类</strong>有：</p>
-<p>QThread 线程 </p>
-<p>QMutex  互斥锁</p>
-<p>QMutex  互斥锁</p>
-<p>QSemaphore 信号量</p>
-<p><strong>创建线程</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> :</span> <span class="keyword">public</span> QThread</span><br><span class="line">&#123; </span><br><span class="line">	Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	MyThread(QObject *parent);</span><br><span class="line">    ~MyThread(); <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;   <span class="comment">// 线程的入口函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/16/QT%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%98%BE%E7%A4%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-QT事件处理与中文显示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/">QT事件处理与中文显示</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/" class="archive-article-date">
-  	<time datetime="2020-05-15T02:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>事件处理：当事件发生时，程序做出响应</p>
-<p>示例：点击“显示”按钮时，文本框显示对应内容</p>
-<p>首先采用QT设计师添加控件文本框和按钮</p>
-        
-          <a class="article-more-a" href="/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/15/QT%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-VS2013编译64位QT4.8.6源代码（超详细版）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/14/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/">VS2013编译64位QT4.8.6源代码（超详细版）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/14/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-13T18:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网上对于Visual Studio 2013版本编译64位的QT4版本的资料相对较少，因此本人在编译的过程也走了一些弯路，现趁着空闲时间来详细的讲讲编译的步骤。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，<strong>下载Visual Studio 2013版本并进行安装</strong>，推荐微信公众号关注：软件安装管家。这里面有许多软件的各个版本的破解版下载链接和教程，免费的！！！</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接下来，<strong>下载QT4</strong>，这个可以直接搜索官网进行下载，百度搜索QT4下载就能找到。具体哪个版本可随意，只要是QT4的就行，本文就用QT4.8.6版本进行演示。</p>
-<p>下载链接：<a href="http://download.qt.io/archive/qt/4.8/4.8.6/qt-everywhere-opensource-src-4.8.6.zip" target="_blank" rel="noopener">http://download.qt.io/archive/qt/4.8/4.8.6/qt-everywhere-opensource-src-4.8.6.zip</a></p>
-<p><font color="red">注意：下载的要是源代码，不要下载成已经编译好的软件。</font></p>
-        
-          <a class="article-more-a" href="/2020/05/14/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/14/VS2013%E7%BC%96%E8%AF%9164%E4%BD%8DQT4.8.6%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据结构练习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">数据结构练习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-03-07T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面是我个人做的一些比较经典的数据结构题目，内含代码解析</p>
-        
-          <a class="article-more-a" href="/2020/03/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈数据结构排序算法中的冒泡算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/02/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">浅谈数据结构排序算法中的冒泡排序</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/02/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-03-01T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而交换类排序包括：冒泡排序和快速排序。</p>
-<p>其中：冒泡排序（稳定的排序）</p>
-<p><font color="red">注：下列改进的冒泡排序是从小到大排序</font></p>
-        
-          <a class="article-more-a" href="/2020/03/02/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/02/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈数据结构排序算法中的快速排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/01/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的快速排序</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/01/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-02-29T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而交换类排序包括：冒泡排序和快速排序。</p>
-<p>其中：快速排序（不稳定的排序）</p>
-<p>特点：序列越无序，效率越高，快速排序是基于原问题分解成多个子问题，再递归地求解各个子问题。</p>
-<p>原理：每次选任一元素作为枢轴（一般选第一个元素），将比枢轴小的元素都放到枢轴前面，比枢轴大的元素都移到枢轴后面。（即类比于：每次选一个标兵，比该标兵矮的同学站左边，比标兵高的同学站右边）</p>
-<p><font color="red">注：下列两种方法的排序都是从小到大排序</font></p>
-<p>方法一：采用递归（较为容易理解）</p>
-        
-          <a class="article-more-a" href="/2020/03/01/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/01/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈数据结构排序算法中的希尔排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/27/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的希尔排序</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/27/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-02-26T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
-<p>其中：希尔排序（不稳定的排序）</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希尔排序又称：缩小增量排序。什么是不稳定的排序呢？意思是假如未排序前的序列存在两个值相同的元素，经过希尔排序后，这两个值在排完的有序序列中的先后位置会发生改变。反之，稳定的排序则不会发生改变。</p>
-<p>为什么希尔排序是不稳定的排序呢？因为：不同的增量可能把相同的关键字划分到两个子序列中执行直接插入排序。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希尔排序可以理解为：要对整个班级按照身高从低到高排列。希尔排序就是首先将班级人数分成5排，然后对每一列进行排序；当排序完后再将队伍分成2排，再次对每一列的同学进行身高排序；当再次排序完后最后队伍分成1排，对每一列的同学进行身高排序（此时就是简单的插入排序了）。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/2020/02/27/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/1.png" alt></p>
-<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
-<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
-        
-          <a class="article-more-a" href="/2020/02/27/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/27/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈数据结构排序算法中的折半插入排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/25/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的折半插入排序</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/25/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-02-24T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
-<p>其中：折半插入排序（稳定的排序）</p>
-<p>原理步骤：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1）首先，利用<font color="red">折半查找法</font>确定插入的正确位置；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2）其次，再一次性对元素进行移动；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3）最后，执行插入指令</p>
-<p>先讲讲折半查找法：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;折半查找也叫二分查找，该方法要求必须是线性存储结构。其原理就是每次与当前有序序列中间下标的数组进行比较，如果此时要插入的值比该A[mid]大，那么我就进入这个有序序列的右半部分继续进行查找，否则就进入左半部分继续查找。直到找到合适位置（low=high时）。</p>
-<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
-<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
-        
-          <a class="article-more-a" href="/2020/02/25/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/25/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 

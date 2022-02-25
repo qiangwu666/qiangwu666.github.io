@@ -147,6 +147,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-进程内COM接口的代码实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E5%86%85COM%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">进程内COM接口的代码实现</a>
+    </h1>
+  
+
+        
+        <a href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E5%86%85COM%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2021-02-15T15:35:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="进程内COM接口的代码实现"><a href="#进程内COM接口的代码实现" class="headerlink" title="进程内COM接口的代码实现"></a>进程内COM接口的代码实现</h1><p><strong>深入CoCreateInstance()</strong>：</p>
+<ol>
+<li>客户端程序调用CoCreateInstance()，传递组件对象类的CLSID以及所要接口的IID。</li>
+<li>COM库在HKEY_CLASSES_ROOT\CLSID.键值下查找服务器的CLSID键值，这个键值包含服务器的注册信息。</li>
+<li>COM库读取服务器DLL的全路径并将DLL加载到客户端的进程空间。</li>
+<li>COM库调用在服务器中DllGetClassObject()函数为所请求的组件对象类请求类工厂。</li>
+<li>服务器创建一个类工厂并将它从DllGetClassObject()返回。</li>
+<li>COM库在类工厂中调用CreateInstance()方法创建客户端程序请求的COM对象。</li>
+<li>CreateInstance()返回一个接口指针到客户端程序。</li>
+</ol>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-创建一个COM接口"><a href="#1-创建一个COM接口" class="headerlink" title="1.创建一个COM接口"></a>1.创建一个COM接口</h4><h5 id="h文件："><a href="#h文件：" class="headerlink" title=".h文件："></a>.h文件：</h5>
+        
+          <a class="article-more-a" href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E5%86%85COM%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E5%86%85COM%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2020年工作总结报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -279,36 +354,29 @@
 
 
   
-    <article id="post-H264视频编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-进程通信——管道通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/">H264视频编码</a>
+      <a class="article-title" href="/2021/01/12/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E2%80%94%E2%80%94%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1/">进程通信——管道通信</a>
     </h1>
   
 
         
-        <a href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2020-06-13T01:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+        <a href="/2021/01/12/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E2%80%94%E2%80%94%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1/" class="archive-article-date">
+  	<time datetime="2021-01-12T15:15:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>H264压缩比</strong></p>
-<p>条件：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.YUV格式为YUV420</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.分辨率为640x480</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.帧率为15</p>
-<p>建议码流为：500kpbs（经验估算的，码流参考值可看：<a href="https://docs.agora.io/cn）" target="_blank" rel="noopener">https://docs.agora.io/cn）</a></p>
-<p><strong>压缩比结果</strong>：约为百分之一</p>
-<p><img src="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/1.png" alt></p>
+        <h1 id="进程通信——管道通信"><a href="#进程通信——管道通信" class="headerlink" title="进程通信——管道通信"></a>进程通信——管道通信</h1><h4 id="服务器端："><a href="#服务器端：" class="headerlink" title="服务器端："></a>服务器端：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUF_SIZE 4096</span></span><br><span class="line">HANDLE h_Mypipe = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//步骤1：定义管道名，点表示当前主机，pipe表示管道</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_NAMED_PIPE   <span class="meta-string">L"\\\\.\\pipe\\Named_Pipe"</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> ** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//步骤2：创建命名管道</span></span><br><span class="line">	h_Mypipe = CreateNamedPipe(</span><br><span class="line">		MY_NAMED_PIPE, <span class="comment">//为命名管道创建名称</span></span><br><span class="line">		PIPE_ACCESS_DUPLEX, <span class="comment">//管道访问方式：PIPE_ACCESS_DUPLEX指双向模式</span></span><br><span class="line">		PIPE_TYPE_MESSAGE | <span class="comment">//命名管道句柄的写入方式：以数据块的方式写入管道</span></span><br><span class="line">		PIPE_READMODE_MESSAGE | <span class="comment">//命名管道句柄的读取方式：以数据块的方式从管道读取</span></span><br><span class="line">		PIPE_WAIT, <span class="comment">//命名管道句柄的等待方式：阻塞方式</span></span><br><span class="line">		PIPE_UNLIMITED_INSTANCES, <span class="comment">//管道所能创建的最大实例个数：1~255，</span></span><br><span class="line">		<span class="number">0</span>, <span class="comment">//管道的输出缓冲区容量，0表示默认大小</span></span><br><span class="line">		<span class="number">0</span>, <span class="comment">//管道的输入缓冲区容量，0表示默认大小 1000, //管道的默认等待超时，单位毫秒</span></span><br><span class="line">		<span class="literal">NULL</span> <span class="comment">//管道的安全性，NULL表示windows提供的默认安全</span></span><br><span class="line">    );</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//INVALID_HANDLE_VALUE是CreateNamedPipe返回值，表示创建失败</span></span><br><span class="line">	<span class="keyword">if</span> (h_Mypipe == INVALID_HANDLE_VALUE)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Create Named_Pipe Failed..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//步骤3：等待客户端的连接</span></span><br><span class="line">	<span class="keyword">if</span> (!ConnectNamedPipe(h_Mypipe, <span class="literal">NULL</span>))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Connect Failed..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Connect Successed..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	DWORD wLen = <span class="number">0</span>;</span><br><span class="line">	DWORD rLen = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> szBuffer[BUF_SIZE] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//步骤4：读写管道</span></span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//向客户端发送数据</span></span><br><span class="line">		<span class="built_in">cin</span>.getline(szBuffer, BUF_SIZE);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"服务器端发送数据："</span> &lt;&lt; szBuffer&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> (!WriteFile(h_Mypipe, szBuffer, <span class="built_in">strlen</span>(szBuffer) + <span class="number">1</span>, &amp;wLen, <span class="literal">NULL</span>))</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"Write Failed..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"服务器端发送成功：共"</span>&lt;&lt; wLen&lt;&lt;<span class="string">"byte"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="comment">//清除缓冲区</span></span><br><span class="line">		<span class="comment">//memset(szBuffer, 0, BUF_SIZE);</span></span><br><span class="line">		<span class="comment">//读取客户端数据</span></span><br><span class="line">		<span class="keyword">if</span> (!ReadFile(h_Mypipe, szBuffer, BUF_SIZE, &amp;rLen, <span class="literal">NULL</span>))</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"Read Failed..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"服务器接收客户端数据："</span> &lt;&lt; szBuffer &lt;&lt; <span class="string">", 共"</span> &lt;&lt; rLen &lt;&lt; <span class="string">"byte"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//步骤5：关闭管道</span></span><br><span class="line">	DisconnectNamedPipe(h_Mypipe);</span><br><span class="line">	CloseHandle(h_Mypipe);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/#more">more >></a>
+          <a class="article-more-a" href="/2021/01/12/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E2%80%94%E2%80%94%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1/#more">more >></a>
         
       
 
@@ -321,7 +389,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/13/H264%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/12/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E2%80%94%E2%80%94%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1/">展开全文 >></a>
         </p>
       
 
@@ -351,39 +419,29 @@
 
 
   
-    <article id="post-视频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-进程通信——共享内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/11/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">视频基础知识</a>
+      <a class="article-title" href="/2021/01/11/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E2%80%94%E2%80%94%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/">进程通信——共享内存</a>
     </h1>
   
 
         
-        <a href="/2020/06/11/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-06-11T01:53:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
+        <a href="/2021/01/11/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E2%80%94%E2%80%94%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/" class="archive-article-date">
+  	<time datetime="2021-01-11T15:35:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a><center>分辨率</center></h1><p><strong>分辨率</strong>：X轴的像素个数乘以Y轴的像素个数</p>
-<p><strong>常见的宽高比</strong>：16:9/4:3，现在基本上都是16:9，不是这种两种的宽高比，则是非标准的，需要进行转换，否则会渲染时可能会出现问题</p>
-<p><strong>常见分辨率</strong>：360P/720P/1K/2K</p>
-<p><font color="red">注：上述这四种常见的分辨率都是16:9的，即：360P是640X360；720P是1280X720</font></p>
-<h1 id="帧率"><a href="#帧率" class="headerlink" title="帧率"></a><center>帧率</center></h1><p>帧率：每秒钟采集/播放图像的个数</p>
-<p>动画的帧率是25帧/s</p>
-<p>常见的帧率：15帧/s（一般用于实时通信，带宽较小），30帧/s，60帧/s（电影拍摄一般在60以上）</p>
-<h1 id="未编码视频的RGB码流"><a href="#未编码视频的RGB码流" class="headerlink" title="未编码视频的RGB码流"></a><center>未编码视频的RGB码流</center></h1><p>RGB码流=分辨率(宽x高)x3(Byte)x帧率</p>
-<p>例如：1280x720x3x25=69120000,，约为69M</p>
-<p><font color="red">注：上述的3(Byte)是RGB的意思</font></p>
-<p>YUV码流=分辨率(宽x高)x1.5(Byte)x帧率</p>
+        <h1 id="进程通信——共享内存"><a href="#进程通信——共享内存" class="headerlink" title="进程通信——共享内存"></a>进程通信——共享内存</h1><h4 id="写入端"><a href="#写入端" class="headerlink" title="写入端"></a>写入端</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUF_SIZE 4096<span class="comment">//数据传输大小</span></span></span><br><span class="line">HANDLE H_Mutex = <span class="literal">NULL</span>;</span><br><span class="line">HANDLE H_Event = <span class="literal">NULL</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> ** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//步骤1：创建共享文件句柄</span></span><br><span class="line">	HANDLE shared_file = CreateFileMapping(</span><br><span class="line">		INVALID_HANDLE_VALUE,<span class="comment">//物理文件句柄</span></span><br><span class="line">		<span class="literal">NULL</span>,  <span class="comment">//默认安全级别</span></span><br><span class="line">		PAGE_READWRITE,      <span class="comment">//PAGE_READWRITE表示可读可写，PAGE_READONLY表示只读，PAGE_WRITECOPY表示只写</span></span><br><span class="line">		<span class="number">0</span>,  <span class="comment">//高位文件大小</span></span><br><span class="line">		BUF_SIZE,  <span class="comment">//低位文件大小</span></span><br><span class="line">		<span class="string">L"ShareMemory"</span>  <span class="comment">//共享内存名称</span></span><br><span class="line">	);  </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (shared_file == <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"Could not create file mapping object..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//步骤2：映射缓存区视图，得到指向共享内存的指针</span></span><br><span class="line">	LPVOID lpBUF = MapViewOfFile(</span><br><span class="line">		shared_file, <span class="comment">//已创建的文件映射对象句柄</span></span><br><span class="line">		FILE_MAP_ALL_ACCESS,<span class="comment">//访问模式:可读写</span></span><br><span class="line">		<span class="number">0</span>, <span class="comment">//文件偏移的高32位</span></span><br><span class="line">		<span class="number">0</span>, <span class="comment">//文件偏移的低32位</span></span><br><span class="line">		BUF_SIZE <span class="comment">//映射视图的大小</span></span><br><span class="line">	);</span><br><span class="line">	<span class="keyword">if</span> (lpBUF == <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Could not create file mapping object..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		CloseHandle(shared_file);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	H_Mutex = CreateMutex(<span class="literal">NULL</span>, FALSE, <span class="string">L"sm_mutex"</span>);</span><br><span class="line">	H_Event = CreateEvent(<span class="literal">NULL</span>, FALSE, FALSE, <span class="string">L"sm_event"</span>);</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//步骤3：操作共享内存</span></span><br><span class="line">	<span class="keyword">char</span> Buffer[<span class="number">97</span>];</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"A proccess:Please input the content to the process B"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cin</span>.getline(Buffer,<span class="number">97</span>);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Buffer: "</span> &lt;&lt;Buffer&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		WaitForSingleObject(H_Mutex, INFINITE); <span class="comment">//使用互斥体加锁</span></span><br><span class="line">		<span class="built_in">memcpy</span>(lpBUF, Buffer, <span class="built_in">strlen</span>(Buffer)+<span class="number">1</span>);</span><br><span class="line">		ReleaseMutex(H_Mutex); <span class="comment">//放锁</span></span><br><span class="line">		SetEvent(H_Event);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	CloseHandle(H_Mutex);</span><br><span class="line">	CloseHandle(H_Event);</span><br><span class="line">	<span class="comment">//步骤4：解除映射和关闭句柄</span></span><br><span class="line">	UnmapViewOfFile(lpBUF);</span><br><span class="line">	CloseHandle(shared_file);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2020/06/11/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
+          <a class="article-more-a" href="/2021/01/11/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E2%80%94%E2%80%94%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/#more">more >></a>
         
       
 
@@ -396,7 +454,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/11/%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/11/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E2%80%94%E2%80%94%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/">展开全文 >></a>
         </p>
       
 
@@ -426,32 +484,33 @@
 
 
   
-    <article id="post-AAC编码器的介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-总结下C++中模块(Dll)对外暴露接口的方式：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/">AAC编码器的介绍</a>
+      <a class="article-title" href="/2020/12/16/%E6%80%BB%E7%BB%93%E4%B8%8BC++%E4%B8%AD%E6%A8%A1%E5%9D%97(Dll)%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%9A/">总结下C++中模块(Dll)对外暴露接口的方式</a>
     </h1>
   
 
         
-        <a href="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-06-10T03:25:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
+        <a href="/2020/12/16/%E6%80%BB%E7%BB%93%E4%B8%8BC++%E4%B8%AD%E6%A8%A1%E5%9D%97(Dll)%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%9A/" class="archive-article-date">
+  	<time datetime="2020-12-15T16:17:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="AAC介绍"><a href="#AAC介绍" class="headerlink" title="AAC介绍"></a>AAC介绍</h2><p>AAC（Advanced Audio Coding）由Fraunhofer IIS、杜比实验室、AT&amp;T、Sony等公司共同开发，目的是为了取代MP3格式。AAC相比MP3压缩率更高，保真性更好。</p>
-<p>AAC最开始是基于MPEG-2的音频编码技术，后面MPEG-4标准出现后，AAC重新集成了其特性，加入了SBR技术和PS技术。</p>
-<p>目前常用语的AAC规格有：AAC LC、AAC HE V1（相对用的比较少，因为基本上已经被V2期待了）、AAC HE V2</p>
-<p><img src="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/1.bmp" alt></p>
+        <h1 id="总结下C-中模块-Dll-对外暴露接口的方式："><a href="#总结下C-中模块-Dll-对外暴露接口的方式：" class="headerlink" title="总结下C++中模块(Dll)对外暴露接口的方式："></a>总结下C++中模块(Dll)对外暴露接口的方式：</h1><h3 id="1-导出API函数的方式"><a href="#1-导出API函数的方式" class="headerlink" title="(1)导出API函数的方式"></a>(1)导出API函数的方式</h3><p>​        这种方式是Windows中调用DLL接口的最基本方式，GDI32.dll, User32.dll都是用这种方式对外暴露系统API的。</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>​        导出函数没有语言限制，什么语言都能调用；</p>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><p>​        这种方式是面向过程的，外部如果要支持<font color="red">多实例</font>等不是很方便，另外它要求的回调函数(callback)只能是普通C函数，C++中我们通常用类静态成员函数，很不方便。</p>
+<p>​        当然，我们通过封装其实也可以让这种方式支持多实例。</p>
+<p>​        通过一个抽象句柄HComponent， 比如:</p>
         
-          <a class="article-more-a" href="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/#more">more >></a>
+          <a class="article-more-a" href="/2020/12/16/%E6%80%BB%E7%BB%93%E4%B8%8BC++%E4%B8%AD%E6%A8%A1%E5%9D%97(Dll)%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%9A/#more">more >></a>
         
       
 
@@ -464,7 +523,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/10/AAC%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E4%BB%8B%E7%BB%8D/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/12/16/%E6%80%BB%E7%BB%93%E4%B8%8BC++%E4%B8%AD%E6%A8%A1%E5%9D%97(Dll)%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%9A/">展开全文 >></a>
         </p>
       
 
@@ -494,29 +553,43 @@
 
 
   
-    <article id="post-刷题笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-播放器DEMO的音视频接口调用步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">刷题笔记</a>
+      <a class="article-title" href="/2020/11/05/%E6%92%AD%E6%94%BE%E5%99%A8DEMO%E7%9A%84%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E6%AD%A5%E9%AA%A4/">QT DEMO接口调用逻辑</a>
     </h1>
   
 
         
-        <a href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-06-05T09:43:40.975Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
+        <a href="/2020/11/05/%E6%92%AD%E6%94%BE%E5%99%A8DEMO%E7%9A%84%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
+  	<time datetime="2020-11-04T16:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基于TCP的应用层协议有：POP3、SMTP（简单邮件传输协议）、TELNET（远程登陆协议）、HTTP（超文本传输协议）、HTTPS（超文本传输安全协议）、FTP（文件传输协议）<br> 基于UDP的应用层协议：TFTP（简单文件传输协议）、RIP（路由信息协议）、DHCP（动态主机设置协议）、BOOTP（引导程序协议，DHCP的前身）、IGMP（Internet组管理协议）<br> 基于TCP和UDP协议：DNS（域名系统）、ECHO（回绕协议）</p>
+        <h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><h4 id="初始化状态："><a href="#初始化状态：" class="headerlink" title="初始化状态："></a><strong>初始化状态</strong>：</h4><p>1.单例方式创造实例</p>
+<p>2.创建四个QT的UI类对象，其初始化UI的成员函数中都new了新的类（WonFileLoader、WonPlayer、MyConvertParam、WonConverter），具体情况如下所示：</p>
+<p><strong>void FormInput::initUi()中：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_pLoader &#x3D; new WonFileLoader();&#x2F;&#x2F;创建读取类</span><br><span class="line">_pPlayer &#x3D; new WonPlayer();&#x2F;&#x2F;创建播放类</span><br></pre></td></tr></table></figure>
+
+<p><strong>void FormConverter::initUi()中：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_pPlayer &#x3D; new WonPlayer();</span><br></pre></td></tr></table></figure>
+
+<p><strong>void FormOutput::initUi()中：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_pLoader &#x3D; new WonFileLoader();</span><br></pre></td></tr></table></figure>
+
+<p><strong>void FormMain::initUi()中：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_pParam &#x3D; new MyConvertParam();	</span><br><span class="line">_pConverter &#x3D; new WonConverter();</span><br></pre></td></tr></table></figure>
+
+<p>代码中new了六个类，前四个类各调用了一次createInstance()函数（类的构造函数中包括这个函数）</p>
         
-          <a class="article-more-a" href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/#more">more >></a>
+          <a class="article-more-a" href="/2020/11/05/%E6%92%AD%E6%94%BE%E5%99%A8DEMO%E7%9A%84%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E6%AD%A5%E9%AA%A4/#more">more >></a>
         
       
 
@@ -529,7 +602,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/05/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/05/%E6%92%AD%E6%94%BE%E5%99%A8DEMO%E7%9A%84%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
         </p>
       
 
@@ -559,35 +632,33 @@
 
 
   
-    <article id="post-音频编码技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-wes接口demo的修改笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">音频编码技术</a>
+      <a class="article-title" href="/2020/09/15/wes%E6%8E%A5%E5%8F%A3demo%E7%9A%84%E4%BF%AE%E6%94%B9%E7%AC%94%E8%AE%B0/">wes接口DEMO修改笔记</a>
     </h1>
   
 
         
-        <a href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2020-06-02T01:13:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
+        <a href="/2020/09/15/wes%E6%8E%A5%E5%8F%A3demo%E7%9A%84%E4%BF%AE%E6%94%B9%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-09-15T15:48:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频压缩技术是在保证信号在听觉方面不产生失真的前提下，对音频数据信号进行尽可能大的压缩。</p>
-<p><strong>音频压缩分为：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.有损压缩（消除冗余信息。如：人的听觉范围是20HZ~2WHZ，因此可以剔除20HZ以下，2WHZ以上的信息）</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.无损压缩</p>
-<h2 id="有损压缩："><a href="#有损压缩：" class="headerlink" title="有损压缩："></a><strong>有损压缩：</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频冗余信息：包括人耳听觉范围外的音频信号以及被掩盖掉（遮蔽）的音频信号。其中，遮蔽包括频域遮蔽和时域遮蔽。时域转频域一般采用傅里叶变换和小波变换</p>
-<p><img src="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/1.bmp" alt></p>
-<p><img src="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/2.bmp" alt></p>
+        <h2 id="创建解码流"><a href="#创建解码流" class="headerlink" title="创建解码流"></a>创建解码流</h2><h5 id="main-创建解码管理器接口"><a href="#main-创建解码管理器接口" class="headerlink" title="main:创建解码管理器接口"></a>main:创建解码管理器接口</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HRESULT hr &#x3D; g_pWSComAPI-&gt;pCoCreateInstance(CLSID_CDecMgr, NULL, 0, IID_IDecMgr, (LPVOID *)&amp;g_pDecMgr);</span><br></pre></td></tr></table></figure>
+
+<h2 id="从解码流的接口中获取媒体信息"><a href="#从解码流的接口中获取媒体信息" class="headerlink" title="从解码流的接口中获取媒体信息"></a>从解码流的接口中获取媒体信息</h2><h5 id="void-TMediaTask-changeProgram-int-nProgIdx-中"><a href="#void-TMediaTask-changeProgram-int-nProgIdx-中" class="headerlink" title="void TMediaTask::changeProgram(int nProgIdx)中"></a>void TMediaTask::changeProgram(int nProgIdx)中</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g_pDecMgr-&gt;GetMediaInfo(szFileName, MEDIA_FILE, g_model&#x2F;*AUTO_MODEL*&#x2F;, &amp;pMediaInfo);</span><br></pre></td></tr></table></figure>
+
+<h5 id="void-TMediaTask-changeAudioStream-int-nProgIdx-int-nAudIdx-中"><a href="#void-TMediaTask-changeAudioStream-int-nProgIdx-int-nAudIdx-中" class="headerlink" title="void TMediaTask::changeAudioStream(int nProgIdx, int nAudIdx)中"></a>void TMediaTask::changeAudioStream(int nProgIdx, int nAudIdx)中</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g_pDecMgr-&gt;GetMediaInfo(szFileName, MEDIA_FILE, g_model&#x2F;*AUTO_MODEL*&#x2F;, &amp;pMediaInfo);</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/15/wes%E6%8E%A5%E5%8F%A3demo%E7%9A%84%E4%BF%AE%E6%94%B9%E7%AC%94%E8%AE%B0/#more">more >></a>
         
       
 
@@ -600,7 +671,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/02/%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E6%8A%80%E6%9C%AF/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/15/wes%E6%8E%A5%E5%8F%A3demo%E7%9A%84%E4%BF%AE%E6%94%B9%E7%AC%94%E8%AE%B0/">展开全文 >></a>
         </p>
       
 
@@ -630,36 +701,40 @@
 
 
   
-    <article id="post-音频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-wes的转换编码接口详述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">音频基础知识</a>
+      <a class="article-title" href="/2020/09/13/wes%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%BC%96%E7%A0%81%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%BF%B0/">wes的转换编码接口详述</a>
     </h1>
   
 
         
-        <a href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-05-27T18:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+        <a href="/2020/09/13/wes%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%BC%96%E7%A0%81%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%BF%B0/" class="archive-article-date">
+  	<time datetime="2020-09-12T16:18:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="音频原始数据格式"><a href="#音频原始数据格式" class="headerlink" title="音频原始数据格式"></a><center>音频原始数据格式</center></h1><p><strong>PCM</strong>：纯粹的音频数据，没有任何格式</p>
-<p><strong>WAV</strong>：既可以存储原始数据（PCM），也可以存储压缩数据，大多数情况下是用WAV来存原始数据</p>
-<p><font color="red">注：WAV就是在PCM的基础上套了一个“头”</font></p>
-<h1 id="量化的基本概念"><a href="#量化的基本概念" class="headerlink" title="量化的基本概念"></a><center>量化的基本概念</center></h1><p><strong>采样大小</strong>：应该采样用多少bit存放，常用的是16bit</p>
-<p><strong>采样率</strong>：比较常见的采样频率：8k、16k、32k、44.1k、48k</p>
-<p>注：采样率越高，数字信号与模拟信号越接近，误差越小，采样率越低，一些敏感的信息就会被忽略掉，通常打电话都是8k的采样率（有一定的失真）</p>
-<p><strong>声道数</strong>：单声道、双声道、多声道（立体声）</p>
-<p><font color="red">注：不同声道的声音可以相同，也可以不同。</font></p>
+        <h3 id="main"><a href="#main" class="headerlink" title="main:"></a>main:</h3><p>​    初始化编码插件接口</p>
+<p>​    创建解码管理器接口</p>
+<p>​    创建文件格式信息枚举接口</p>
+<p>​    进入QTConverter</p>
+<p>​        创建QT菜单和快捷键</p>
+<p>​        新建TTestCase：</p>
+<p>​        新建TTestCaseViewItem：</p>
+<p>​        新建TBatchConv：</p>
+<p>​        事件连接onrunNextTask</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IMediaInfo *pMediaInfo &#x3D; NULL;</span><br><span class="line">	g_pDecMgr-&gt;GetMediaInfo(szFileName, MEDIA_FILE,g_model &#x2F;*AUTO_MODEL*&#x2F;, &amp;pMediaInfo);&#x2F;&#x2F;获取媒体文件信息接口IMediaInfo</span><br></pre></td></tr></table></figure>
+
+<h1 id="编码转换步骤"><a href="#编码转换步骤" class="headerlink" title="编码转换步骤"></a>编码转换步骤</h1>
         
-          <a class="article-more-a" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/13/wes%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%BC%96%E7%A0%81%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%BF%B0/#more">more >></a>
         
       
 
@@ -672,7 +747,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/%E9%9F%B3%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/13/wes%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%BC%96%E7%A0%81%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%BF%B0/">展开全文 >></a>
         </p>
       
 
@@ -702,37 +777,29 @@
 
 
   
-    <article id="post-毕设答辩问题总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-VCU接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">毕设答辩问题总结</a>
+      <a class="article-title" href="/2020/09/13/VCU%E6%8E%A5%E5%8F%A3/">VCU流程</a>
     </h1>
   
 
         
-        <a href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-05-25T15:36:29.523Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+        <a href="/2020/09/13/VCU%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
+  	<time datetime="2020-09-12T16:15:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="毕设答辩问题总结"><a href="#毕设答辩问题总结" class="headerlink" title="毕设答辩问题总结"></a><center>毕设答辩问题总结</center></h1><h2 id="下位机问题："><a href="#下位机问题：" class="headerlink" title="下位机问题："></a>下位机问题：</h2><h3 id="1-简述51与STM32的区别"><a href="#1-简述51与STM32的区别" class="headerlink" title="1.简述51与STM32的区别"></a>1.简述51与STM32的区别</h3><p><strong>内核：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机采用的是51 Core，8Bit；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32采用的是ARM Cortex-M3，32Bit</p>
-<p><strong>地址空间：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机只有64KB；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32有4GB</p>
-<p><strong>片上储存器：</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51单片机ROM(只读存储器)只有2K-64K，RAM(易挥发性随机存取存储器)仅为128B-1K；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STM32的ROM为20K-1MB，RAM有8K-256K　</p>
+        <h3 id="main"><a href="#main" class="headerlink" title="main:"></a>main:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">do </span><br><span class="line">	&#123;</span><br><span class="line">		FnCreateInstance fnCreateInstance &#x3D; ComApi::inst()-&gt;fnCreateInstance;</span><br><span class="line">		CHECK_BREAK(fnCreateInstance);</span><br><span class="line"></span><br><span class="line">		fnCreateInstance(CLSID_CMediaConverterEx, NULL, 0, </span><br><span class="line">			IID_IMediaConverterEx, (void **)&amp;_pMediaConverterEx);</span><br><span class="line">		CHECK_BREAK(_pMediaConverterEx);</span><br><span class="line"></span><br><span class="line">		_pMediaConverterEx-&gt;GetDecMgrExBaseInterface(&amp;_pDecMgrExBase);</span><br><span class="line">		CHECK_BREAK(_pDecMgrExBase);</span><br><span class="line"></span><br><span class="line">		_pMediaConverterEx-&gt;GetEncodeCtrlBaseInterface(&amp;_pEncodeCtrlBase);</span><br><span class="line">		CHECK_BREAK(_pEncodeCtrlBase);</span><br><span class="line"></span><br><span class="line">		return true;</span><br><span class="line">	&#125; while (0);</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/13/VCU%E6%8E%A5%E5%8F%A3/#more">more >></a>
         
       
 
@@ -745,77 +812,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/25/%E6%AF%95%E8%AE%BE%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-msys2+MinGW编译ffmpeg的具体步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/">msys2+MinGW编译ffmpeg的具体步骤</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
-  	<time datetime="2020-05-22T04:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用MinGW的前提是搭建完msys2的环境</p>
-<p>首先，搭建msys2环境</p>
-<p>msys2下载地址：<a href="https://www.msys2.org" target="_blank" rel="noopener">https://www.msys2.org</a></p>
-<p>点击下载</p>
-<p><img src="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/0.png" alt></p>
-<p>下载完成后安装只需要无脑下一步即可（我这边把msys2直接安装在C盘中，也可以安装在其他盘）</p>
-        
-          <a class="article-more-a" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/msys2+MinGW%E7%BC%96%E8%AF%91ffmpeg%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/13/VCU%E6%8E%A5%E5%8F%A3/">展开全文 >></a>
         </p>
       
 
@@ -847,7 +844,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
