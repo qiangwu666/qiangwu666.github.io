@@ -147,6 +147,343 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C++与数据结构知识点总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/23/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">C++与数据结构知识点总结</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/23/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-02-22T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>static**：用来说明是静态变量</p>
+<p>特点：</p>
+<p>1.如果是在<font color="red">函数外面定义</font>的，那么效果和全局变量类似，但static定义的变量只能在当前的C文件中使用</p>
+<p>2.如果是在<font color="red">函数内部定义</font>的，那么这个变量只初始化一次</p>
+<p>const:</p>
+<p>const 常量类型 常量名=常量表达式；(固定不变)</p>
+<p>int const等同于const int</p>
+<p>malloc和free：</p>
+<p>new和delete：</p>
+<p>new：开辟一个存储空间</p>
+<p>delete：撤销new建立的存储空间，防止内存泄漏。</p>
+<p>try和throw：</p>
+<p>stlen()和str():</p>
+<p><strong>析构函数</strong>的调用顺序：</p>
+<p>先构造的后析构，后构造的先析构。相当于栈的先进后出</p>
+<p>拷贝构造函数：</p>
+<p> CExample(const CExample&amp; C)　就是我们自定义的拷贝构造函数。可见，拷贝构造函数是一种<strong>特殊的</strong>构造函数<strong>，函数的名称必须和类名称一致，它必须的一个参数是本类型的一个</strong>引用变量**。</p>
+<p><a href="https://www.cnblogs.com/alantu2018/p/8459250.html" target="_blank" rel="noopener">https://www.cnblogs.com/alantu2018/p/8459250.html</a></p>
+<p><strong>friend</strong>：友元，给予函数访问私有部分内容的权限</p>
+<p>例子：friend int f(A&amp;f1,B&amp;f2)</p>
+<p><strong>引用</strong>：等同于取别名</p>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> *b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	........</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">5</span>;</span><br><span class="line">	f(&amp;a,&amp;b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个例子可以看出&amp;a要跟 *a配合使用，若主函数中调用f()不写&amp;a，而是写成a的话，那么只有在f()这个函数里变量a,b才会改变，等到执行完这个子函数f()后，值又会重新变为刚输入f()子函数时的数值。（即：在f()函数中其实是形参a,b发生了改变，而实参a,b并没有变化）</p>
+<p>为什么当子函数格式为：void f(int *a,*b)时，在调用子函数的输入一定要为f(&amp;a,&amp;b)呢？</p>
+<p>原因是：引用得到的是地址，当子函数用指针来接收地址时，函数中的a,b发生变化时，被引用的值同时也发生变化，不会受到函数声明周期的影响。</p>
+<p>C++中：<strong>参数传递</strong>的方法是想“实虚结合”</p>
+<ul>
+<li>按值传递：调用函数本身，不对实参进行操作，即使形参值发生改变，实参的值仍然不变；</li>
+<li>地址传递：形参为指针，实参跟着形参发生改变；例：f(a,b);void f(&amp;a,&amp;b);</li>
+<li>引用传递：引用得到的是地址，相当于输入的是地址，子函数用指针来接收地址;例：f(&amp;a,&amp;b);void f(*a,*b)</li>
+</ul>
+<p><strong>函数</strong>的<strong>重载</strong>：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：同时定义这三个函数void f(int x)，void f(float x), void f(double x)</span><br></pre></td></tr></table></figure>
+
+<p>从上面看；：这就是重载。即：定义的函数名字相同，但是输入参数的类型不同</p>
+<p><strong>运算符</strong>的<strong>重载</strong>：</p>
+<p><strong>运算符重载的基本原则：</strong></p>
+<p>格式：如operator+（）必须是有效的C++运算符。</p>
+<ul>
+<li>不能虚构运算符，如operator@（）</li>
+<li>重载后的运算符至少要有一个操作数是用户自定义的类型不能违反运算符原来的句法规则，如取模%不能重载成使用操作数</li>
+<li>不能修改运算符的优先级</li>
+</ul>
+<p><strong>继承方式</strong>：</p>
+<p>分为：公用继承、私有继承、受保护继承</p>
+<p>特点：</p>
+<ul>
+<li>无论是什么方式的继承，都只继承基类的公用成员和保护成员，而私有成员、构造函数、析构函数都是不被继承的；</li>
+<li>公用继承不改变访问属性；</li>
+<li>私有、受保护继承则根据继承方式，将从基类继承过来的成员的访问属性全改为对应的继承方式;</li>
+</ul>
+<p><font color="red">注：保护成员：不能被外界引用，但可以被<strong>派生类</strong>的成员引用.(派生类：通过继承方式，新的类可以从已有的类中派生。那么用于派生的类统称为这个派生类的“基类”)</font></p>
+<p><font color="red">注：若是调用时不写继承方式，则默认为私有继承哦。</font></p>
+<p>当存在继承关系时，执行的顺序为：</p>
+<p><strong>虚函数</strong>：</p>
+<p>定义：被virtual关键字修饰的成员函数，就是虚函数。虚函数的作用，用专业术语来解释就是实现多态性。（多态性：是将接口与实现进行分离；简单来讲就是实现以共同的方法，但因个体差异，而采用不同的策略。）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">例<span class="number">1</span>：</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	A()&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span><span class="comment">//声明为虚函数</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"11111111111"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span><span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		B()&#123;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span><span class="comment">//子类和父类具有相同的函数名</span></span></span><br><span class="line"><span class="function">		</span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"22222222222"</span>&lt;&lt;<span class="built_in">endl</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	A *a= <span class="keyword">new</span> B();</span><br><span class="line">	a-&gt;f();<span class="comment">//基类指针调用派生类的非虚函数</span></span><br><span class="line">	<span class="keyword">delete</span> a;</span><br><span class="line">&#125;</span><br><span class="line">输出：</span><br><span class="line">	<span class="number">22222222222</span></span><br><span class="line">	<span class="number">11111111111</span></span><br></pre></td></tr></table></figure>
+
+<p>假如不声明为虚函数会怎样呢？</p>
+<p>答：如果不声明为虚函数，那么试图通过基类指针调用派生类的非虚函数是不行的。如果非要这样写，那么输出的结果就是11111111111。</p>
+<p>为什么会这样呢？</p>
+<p>答：因为：基类指针是用来指向基类对象的，如果用它指向派生类对象，则自动进行指针类型转换，将派生类的对象的指针先转换为基类指针对象，这样，基类指针指向的是派生类对象中的基类部分，所以不声明为虚函数的话，是没法执行派生类中相同函数名的函数的。我的理解是：virtual这个关键字是要告诉编译器在派生类中还可能存在着相同函数名的函数，使得基类指针去往派生类中寻找。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/23/C++%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-浅谈BP神经网络的原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/19/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">浅谈BP神经网络的原理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/19/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-02-18T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>神经网络的工作状态分为<strong>学习</strong>和<strong>工作</strong>两种状态</p>
+<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学习</strong>：利用学习算法来调整神经元间的连接权重，使得网络输出更符合实际</p>
+<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作</strong>：神经元间的连接权值不变，可以作为分类器或者预测数据之用。</p>
+<p>采用BP学习算法的前馈神经网络称为BP神经网络。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BP算法基本原理：利用输出后的误差来估计输出层的直接前导层的误差，再用这个误差估计更前一层的误差，如此一层一层的反传下去，就获得了所有其他各层的误差估计。</p>
+<p><strong><font color="red">特点：信号的正向传播&amp;误差的反向传播</font></strong></p>
+        
+          <a class="article-more-a" href="/2020/02/19/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/19/%E6%B5%85%E8%B0%88BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-浅谈数据结构排序算法中的直接插入排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/18/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">浅谈数据结构排序算法中的直接插入排序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/18/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-02-17T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构中的排序算法有：插入类排序、交换类排序、选择排序、堆排序、归并排序、桶排序。而 插入类排序包括：直接插入排序、折半插入排序、希尔排序。</p>
+<p>直接插入排序（稳定的排序）</p>
+<p>原理步骤：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1）首先：取一个元素（一般为第一个元素）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2）其次，把这个元素当成是一个有序的序列（即：元素个位为一的有序序列）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3）然后，将剩下的元素依次插入到当前的这个有序序列的对应位置上</p>
+<p><font color="red">注：下列两种方法都是从小到大排序</font></p>
+<p>方法一：建立哨兵（A[0]为哨兵，类似于中介变量，用于暂存元素值）</p>
+        
+          <a class="article-more-a" href="/2020/02/18/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/18/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-刷题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/16/%E5%88%B7%E9%A2%98/">刷题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/16/%E5%88%B7%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-02-15T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a[5] &#x3D; &#123; 1,2,3,4,5 &#125;;</span><br><span class="line">	int *ptr &#x3D; (int *)(&amp;a + 1);&#x2F;&#x2F;可以写成int *ptr &#x3D;  *(&amp;a + 1);但是不规范</span><br><span class="line">	printf(&quot;%d,%d&quot;,*(a+1),*(ptr-1));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：2,5</p>
+<p><strong>&amp;a+1不是首地址+1，系统会认为加了一个整个a数组，偏移了整个数组a的大小</strong>（也就是5个int的大小）。所以int *ptr=(int *)(&amp;a+1);其实ptr实际是&amp;(a[5]),也就是a+5</p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20170621/4988473_1498009999095_77189BC6A8A3AAAD72C6747E071AF510" alt="img"></p>
+<p><img src="/2020/02/16/%E5%88%B7%E9%A2%98/C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200310223831303.png" alt="image-20200310223831303"></p>
+<p>注意看第一张图的从左到右</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/16/%E5%88%B7%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-论主成分分析法与因子分析的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -184,6 +521,79 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/02/13/%E8%AE%BA%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E6%B3%95%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-层次分析法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/">层次分析法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-02-10T18:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>层次分析法（AHP法）是一种解决<strong>多目标</strong>的复杂问题的<strong>定性</strong>与<strong>定量</strong>相结合的<strong>决策分析方法</strong>。</p>
+<p>注：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定性：通过非量化的手段来探究事物的本质。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 定量：以数量形式存在着的属性，并因此可以对其进行测量。</p>
+<p>举个例子：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>人物</strong>：小强</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>目的</strong>：打算从北京去上海玩</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>要求</strong>：分析他是坐动车去呢？还是坐飞机去呢？还是坐汽车去呢？还是跑过去呢？请根据他个人情况进行最优方案的选择</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上述举例的这道题就是一道采用层次分析法来解决的经典题目。现在我们来进行一一分析。</p>
+        
+          <a class="article-more-a" href="/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/11/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -519,7 +929,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 Wu JianQiang
+    		&copy; 2022 Wu JianQiang
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
