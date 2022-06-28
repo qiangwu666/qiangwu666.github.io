@@ -16,9 +16,8 @@
 <meta property="og:description" content="项目问题1 MVC和MVVM的区别1.1 MVC（Model View Control）：​        C可以直接引用V和M，而V和M不能直接引用C，而V和M之间则是双黄线，它们俩谁也不能引用谁，你既不能在M里面写V，也不能在V里面写M。 1.1.1 对于View和Controller的交互​        举例：比如按钮点击事件，是View来接收的，但是处理这个事件的应该是Controlle">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2022/03/14/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/wujianqiang/Desktop/_posts/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/1.png">
-<meta property="og:image" content="http://yoursite.com/2022/03/14/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/wujianqiang/Desktop/_posts/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/2.png">
 <meta property="article:published_time" content="2022-03-14T08:52:34.817Z">
-<meta property="article:modified_time" content="2022-06-27T21:54:11.000Z">
+<meta property="article:modified_time" content="2022-06-28T05:06:44.082Z">
 <meta property="article:author" content="Wu JianQiang">
 <meta property="article:tag" content="C++&#x2F;Python">
 <meta name="twitter:card" content="summary">
@@ -192,8 +191,6 @@
 <h4 id="2-2-1-文件导入"><a href="#2-2-1-文件导入" class="headerlink" title="2.2.1 文件导入"></a>2.2.1 文件导入</h4><p>通过饿汉单例模式创建接口的实例话对象</p>
 <p><img src="/2022/03/14/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/wujianqiang/Desktop/_posts/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/1.png" alt="1"></p>
 <p>分析导入文件格式和基本信息</p>
-<p><img src="/2022/03/14/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/wujianqiang/Desktop/_posts/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/2.png" alt="2"></p>
-<p>详见：<a href="https://qiangwu666.github.io/2021/02/01/万兴内部技术分享会PPT/" target="_blank" rel="noopener">https://qiangwu666.github.io/2021/02/01/万兴内部技术分享会PPT/</a></p>
 <h3 id="3-Qt中用到了哪些设计模式思维"><a href="#3-Qt中用到了哪些设计模式思维" class="headerlink" title="3.Qt中用到了哪些设计模式思维"></a>3.Qt中用到了哪些设计模式思维</h3><h3 id="单例模式："><a href="#单例模式：" class="headerlink" title="单例模式："></a>单例模式：</h3><p>意图：保证一个类仅有一个实例，并提供一个访问它的全局访问点。<br>主要解决：一个全局使用的类频繁地创建与销毁。<br>何时使用：当您想控制实例数目，节省系统资源的时候。<br>如何解决：判断系统是否已经有这个单例，如果有则返回，如果没有则创建。<br>关键代码：构造函数是私有的，指向本身实例的类属性为静态，通过一个static静态成员方法返回唯一的对象实例</p>
 <h4 id="饿汉模式："><a href="#饿汉模式：" class="headerlink" title="饿汉模式："></a>饿汉模式：</h4><p>​        饿汉式单例模式，程序启动时就实例化了该对象，并没有推迟到第一次使用该对象时再进行实例化；如果运行过程中没有使用到，该实例对象就被浪费掉了。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CSingleton</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> CSingleton* <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &amp;single;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">static</span> CSingleton single;<span class="comment">//直接实例化对象</span></span><br><span class="line">    CSingleton();</span><br><span class="line">    ~CSingleton();</span><br><span class="line">    CSingleton(<span class="keyword">const</span> CSingleton&amp;)&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">CSingleton CSingleton::single;</span><br></pre></td></tr></table></figure>
